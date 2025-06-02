@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Version>1.0.1.0</Version>
+    <Authors>Megaleios</Authors>
+    <Product>UtilityFramework</Product>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <CheckEolTargetFramework>false</CheckEolTargetFramework>
+<SuppressTfmSupportBuildWarnings>true</SuppressTfmSupportBuildWarnings>
+    <NoWarn>0649;1584;1658;1711:1712;0693;0162;0612;1634;0618;1998;1701;1702;1591;1572;1571;1573;1587;1570</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.17" />
+  </ItemGroup>
+
+</Project>

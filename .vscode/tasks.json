@@ -1,0 +1,25 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "build",
+        "${workspaceFolder}/src/UtilityFramework.Test.Core/UtilityFramework.Test.Core.csproj"
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "build3",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "build",
+        "${workspaceFolder}/src/UtilityFramework.WebApi.Core3/UtilityFramework.WebApi.Core3.csproj"
+      ],
+      "problemMatcher": "$msCompile"
+    }
+  ]
+}

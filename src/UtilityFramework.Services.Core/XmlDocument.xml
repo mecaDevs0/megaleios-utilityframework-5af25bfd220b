@@ -1,0 +1,632 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UtilityFramework.Services.Core</name>
+    </assembly>
+    <members>
+        <member name="M:UtilityFramework.Services.Core.Interface.IFireStoreService.SavePost``1(``0,System.String,System.String)">
+            <summary>
+            REGISTRAR OBJ NO FIRESTORE
+            </summary>
+            <param name="entity"></param>
+            <param name="collectionName"></param>
+            <param name="memberName"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:UtilityFramework.Services.Core.Interface.IFireStoreService.SavePatch``1(``0,System.String,System.String,System.String)">
+            <summary>
+            ATUALIZAR OBJETO (TODAS PROPS DIFERENTE SÃO ATUALIZADAS)
+            </summary>
+            <param name="entity"></param>
+            <param name="id"></param>
+            <param name="collectionName"></param>
+            <param name="memberName"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:UtilityFramework.Services.Core.Interface.IFireStoreService.Delete(System.String,System.String,System.String)">
+            <summary>
+            DELETAR OBJ DO FIRESTORE    
+            </summary>
+            <param name="collectionName"></param>
+            <param name="id"></param>
+            <param name="memberName"></param>
+        </member>
+        <member name="M:UtilityFramework.Services.Core.Interface.IFireStoreService.SavePatchMultiple(System.String,System.Collections.Generic.List{System.String},System.String,System.Object,System.String)">
+            <summary>
+            ATUALIZAR VARIOS OBJETOS NO FIREBASE
+            </summary>
+            <param name="collectionName"></param>
+            <param name="refDocuments"></param>
+            <param name="property"></param>
+            <param name="data"></param>
+            <param name="memberName"></param>
+        </member>
+        <member name="M:UtilityFramework.Services.Core.Interface.IFireStoreService.SavePostAsync``1(``0,System.String,System.String)">
+            <summary>
+            SALVAR NO FIREBASE ASYNC
+            </summary>
+            <param name="entity"></param>
+            <param name="collectionName"></param>
+            <param name="memberName"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Core.Interface.IFireStoreService.SavePatchAsync``1(``0,System.String,System.String,System.String)">
+            <summary>
+            ATUALIZAR NO FIREBASE ASYNC
+            </summary>
+            <param name="entity"></param>
+            <param name="id"></param>
+            <param name="collectionName"></param>
+            <param name="memberName"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Core.Interface.IFireStoreService.DeleteAsync(System.String,System.String,System.String)">
+            <summary>
+            REMOVER ASYNC
+            </summary>
+            <param name="collectionName"></param>
+            <param name="id"></param>
+            <param name="memberName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Core.Interface.ISenderMailService.SendMessageEmail(System.String,System.String,System.String,System.String,System.String,System.Boolean,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Boolean,System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+            <summary>
+            ENVIAR E-MAIL
+            </summary>
+            <param name="nome">NOME DO APP OU REMETENTE </param>
+            <param name="email">EMAIL PRINCIPAL</param>
+            <param name="body">HTML DO CORPO</param>
+            <param name="subject">ASSUNTO DO EMAIL</param>
+            <param name="titleEvent"></param>
+            <param name="invite"></param>
+            <param name="local"></param>
+            <param name="inicio"></param>
+            <param name="utc"></param>
+            <param name="fim"></param>
+            <param name="recorrente">INFORMA SE O EVENTO DEVE SER RECORRENTE</param>
+            <param name="pathFile">CAMINHO ABSOLUTO DO ARQUIVO</param>
+            <param name="ccEmails">LISTA DE EMAILS PARA COPIA</param>
+            <param name="ccoEmails">LISTA DE E-MAILS PARA COPIA OCULTA</param>
+            <param name="replyTo">LISTA DE E-MAILS PARA REPLY - TO</param>
+        </member>
+        <member name="M:UtilityFramework.Services.Core.Interface.ISenderMailService.SendMessageEmail(System.String,System.Collections.Generic.List{System.String},System.String,System.String,System.String,System.Boolean,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Boolean,System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+            <summary>
+            ENVIO DE EMAIL
+            </summary>
+            <param name="nome"></param>
+            <param name="email"></param>
+            <param name="body"></param>
+            <param name="subject"></param>
+            <param name="titleEvent"></param>
+            <param name="invite"></param>
+            <param name="local"></param>
+            <param name="inicio"></param>
+            <param name="utc"></param>
+            <param name="fim"></param>
+            <param name="recorrente"></param>
+            <param name="pathFile"></param>
+            <param name="ccoEmails"></param>
+            <param name="replyTo"></param>
+        </member>
+        <member name="M:UtilityFramework.Services.Core.Interface.ISenderMailService.SendMessageEmailAmazon(System.String,System.Collections.Generic.List{System.String},System.String,System.String,System.String,System.Boolean,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Boolean,System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+            <summary>
+            ENVIO DE EMAIL COM AMAZOM
+            </summary>
+            <param name="nome"></param>
+            <param name="email"></param>
+            <param name="body"></param>
+            <param name="subject"></param>
+            <param name="titleEvent"></param>
+            <param name="invite"></param>
+            <param name="local"></param>
+            <param name="inicio"></param>
+            <param name="utc"></param>
+            <param name="fim"></param>
+            <param name="recorrente"></param>
+            <param name="pathFile"></param>
+            <param name="ccoEmails"></param>
+            <param name="replyTo"></param>
+        </member>
+        <member name="M:UtilityFramework.Services.Core.Interface.ISenderMailService.SendMessageEmailAsync(System.String,System.String,System.String,System.String,System.String,System.Boolean,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Boolean,System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Boolean)">
+            <summary>
+            ENVIO DE EMAIL ASYNC 
+            </summary>
+            <param name="nome"></param>
+            <param name="email"></param>
+            <param name="body"></param>
+            <param name="subject"></param>
+            <param name="titleEvent"></param>
+            <param name="invite"></param>
+            <param name="local"></param>
+            <param name="inicio"></param>
+            <param name="utc"></param>
+            <param name="fim"></param>
+            <param name="recorrente"></param>
+            <param name="pathFile"></param>
+            <param name="ccEmails"></param>
+            <param name="ccoEmails"></param>
+            <param name="replyTo"></param>
+            <param name="configureAwait"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Core.Interface.ISenderMailService.SendMessageEmailAsync(System.String,System.Collections.Generic.List{System.String},System.String,System.String,System.String,System.Boolean,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Boolean,System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Boolean)">
+            <summary>
+            ENVIO DE EMAIL ASYNC COM COPIA 
+            </summary>
+            <param name="nome"></param>
+            <param name="email"></param>
+            <param name="body"></param>
+            <param name="subject"></param>
+            <param name="titleEvent"></param>
+            <param name="invite"></param>
+            <param name="local"></param>
+            <param name="inicio"></param>
+            <param name="utc"></param>
+            <param name="fim"></param>
+            <param name="recorrente"></param>
+            <param name="pathFile"></param>
+            <param name="ccoEmails"></param>
+            <param name="replyTo"></param>
+            <param name="configureAwait"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Core.Interface.ISenderMailService.SendMessageEmailAmazonAsync(System.String,System.Collections.Generic.List{System.String},System.String,System.String,System.String,System.Boolean,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Boolean,System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Boolean)">
+            <summary>
+            ENVIO DE EMAIL ASYNC COM COPIA 
+            </summary>
+            <param name="nome"></param>
+            <param name="email"></param>
+            <param name="body"></param>
+            <param name="subject"></param>
+            <param name="titleEvent"></param>
+            <param name="invite"></param>
+            <param name="local"></param>
+            <param name="inicio"></param>
+            <param name="utc"></param>
+            <param name="fim"></param>
+            <param name="recorrente"></param>
+            <param name="pathFile"></param>
+            <param name="ccoEmails"></param>
+            <param name="replyTo"></param>
+            <param name="configureAwait"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Core.Interface.ISenderMailService.GerateBody(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            GERAR HTML ATRAVEZ DE ARQUIVO [INCLUIR ARQUIVO NA PASTA TEMPLATE]
+            </summary>
+            <param name="filename"></param>
+            <param name="substituicao"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Core.Interface.ISenderSmsService.SenderSmsIAgent(System.String,System.String)">
+            <summary>
+            SEND SMS TO VALIDATE PHONE NUMBER
+            </summary>
+            <param name="phone">FORMAT 11999999999 OR 1199999999</param>
+            <param name="message">MESSAGE, DONT USE SPECIAL CHARACTERS</param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Core.Interface.ISenderSmsService.InfobipSendSms(System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            SEND SMS WITH INFOBIP
+            </summary>
+            <param name="from">APP NAME</param>
+            <param name="phone">FORMAT 11999999999 OR 1199999999</param>
+            <param name="message">MESSAGE, DONT USE SPECIAL CHARACTERS</param>
+            <param name="countryCode">COUNTRY CODE EX: 55</param>
+            <param name="removeZeroLeft"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Core.Interface.ISenderSmsService.SenderSmsIAgentAsync(System.String,System.String,System.Boolean)">
+            <summary>
+            SEND SMS TO VALIDATE PHONE NUMBER ASYNC
+            </summary>
+            <param name="phone">FORMAT 11999999999 OR 1199999999</param>
+            <param name="message">MESSAGE, DONT USE SPECIAL CHARACTERS</param>
+            <param name="configureAwait">USE CONTEXT</param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Core.Interface.ISenderSmsService.InfobipSenderSmsAsync(System.String,System.String,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            SEND SMS WITH INFOBIP
+            </summary>
+            <param name="from">APP NAME</param>
+            <param name="phone">FORMAT 11999999999 OR 1199999999</param>
+            <param name="message">MESSAGE, DONT USE SPECIAL CHARACTERS</param>
+            <param name="countryCode">COUNTRY CODE EX: 55</param>
+            <param name="configureAwait">USE CONTEXT</param>
+            <param name="removeZeroLeft">REMOVER ZERO A ESQUERDA</param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Core.Interface.ISenderSmsService.SmsDevSendSmsAsync(System.String,System.String,System.String,System.String,System.Nullable{System.DateTime})">
+            <summary>
+            ENVIO DE SMS PARA UM CELULAR COM POSSIBILIDADE DE AGENDAMENTO
+            </summary>
+            <param name="message">MENSAGEM SEM CARACTERES ESPECIAIS</param>
+            <param name="celPhone">NUMERO DO CELULAR</param>
+            <param name="countryCode">55</param>
+            <param name="referenceId">REFERENCIA</param>
+            <param name="dateSend">DATA DE ENVIO PARA AGENDAMENTO</param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Core.Interface.ISenderSmsService.SmsDevSendSms(System.String,System.String,System.String,System.String,System.Nullable{System.DateTime})">
+            <summary>
+            ENVIO DE SMS PARA UM CELULAR COM POSSIBILIDADE DE AGENDAMENTO
+            </summary>
+            <param name="message">MENSAGEM SEM CARACTERES ESPECIAIS</param>
+            <param name="celPhone">NUMERO DO CELULAR</param>
+            <param name="countryCode">55</param>
+            <param name="referenceId">REFERENCIA</param>
+            <param name="dateSend">DATA DE ENVIO PARA AGENDAMENTO</param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Core.Interface.ISenderSmsService.SmsDevSendMultipleSmsAsync(System.Collections.Generic.List{UtilityFramework.Services.Core.Models.SmsDevMultipleViewModel},System.Nullable{System.DateTime})">
+            <summary>
+            ENVIO DE SMS PARA VARIOS NUMEROS
+            </summary>
+            <param name="data"></param>
+            <param name="dateSend"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Core.Interface.ISenderSmsService.SmsDevSendMultipleSms(System.Collections.Generic.List{UtilityFramework.Services.Core.Models.SmsDevMultipleViewModel},System.Nullable{System.DateTime})">
+            <summary>
+            ENVIO DE SMS PARA VARIOS NUMEROS
+            </summary>
+            <param name="data"></param>
+            <param name="dateSend"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Core.Interface.ISenderSmsService.GetAsync(System.String)">
+            <summary>
+            METODO PARA OBTER STATUS DO ENVIO DE UM SMS 
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Core.Interface.ISenderSmsService.Get(System.String)">
+            <summary>
+            METODO PARA OBTER STATUS DO ENVIO DE UM SMS
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="P:UtilityFramework.Services.Core.Models.SmsMessagesItemViewModel.To">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Core.Models.SmsMessagesItemViewModel.SmsStatusViewModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Core.Models.SmsMessagesItemViewModel.MessageId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Core.Models.SmsResponseViewModel.Messages">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Core.Models.SmsStatusViewModel.GroupId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Core.Models.SmsStatusViewModel.GroupName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Core.Models.SmsStatusViewModel.Id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Core.Models.SmsStatusViewModel.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Core.Models.SmsStatusViewModel.Description">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UtilityFramework.Services.Core.SendService.SendMessageEmail(System.String,System.String,System.String,System.String,System.String,System.Boolean,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Boolean,System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+            <summary>
+            ENVIO DE EMAIL
+            </summary>
+            <param name="nome"></param>
+            <param name="email"></param>
+            <param name="body"></param>
+            <param name="subject"></param>
+            <param name="titleEvent"></param>
+            <param name="invite"></param>
+            <param name="local"></param>
+            <param name="inicio"></param>
+            <param name="utc"></param>
+            <param name="fim"></param>
+            <param name="recorrente"></param>
+            <param name="path"></param>
+            <param name="ccEmails"></param>
+            <param name="ccoEmails"></param>
+            <param name="replyTo"></param>
+        </member>
+        <member name="M:UtilityFramework.Services.Core.SendService.SendMessageEmail(System.String,System.Collections.Generic.List{System.String},System.String,System.String,System.String,System.Boolean,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Boolean,System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+            <summary>
+            ENVIO DE EMAIL
+            </summary>
+            <param name="nome"></param>
+            <param name="email"></param>
+            <param name="body"></param>
+            <param name="subject"></param>
+            <param name="titleEvent"></param>
+            <param name="invite"></param>
+            <param name="local"></param>
+            <param name="inicio"></param>
+            <param name="utc"></param>
+            <param name="fim"></param>
+            <param name="recorrente"></param>
+            <param name="pathFile"></param>
+            <param name="ccoEmails"></param>
+            <param name="replyTo"></param>
+        </member>
+        <member name="M:UtilityFramework.Services.Core.SendService.SendMessageEmailAmazon(System.String,System.Collections.Generic.List{System.String},System.String,System.String,System.String,System.Boolean,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Boolean,System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+            <summary>
+            ENVIO DE EMAIL AMAZON
+            </summary>
+            <param name="nome"></param>
+            <param name="email"></param>
+            <param name="body"></param>
+            <param name="subject"></param>
+            <param name="titleEvent"></param>
+            <param name="invite"></param>
+            <param name="local"></param>
+            <param name="inicio"></param>
+            <param name="utc"></param>
+            <param name="fim"></param>
+            <param name="recorrente"></param>
+            <param name="pathFile"></param>
+            <param name="ccoEmails"></param>
+            <param name="replyTo"></param>
+        </member>
+        <member name="M:UtilityFramework.Services.Core.SendService.SendMessageEmailAsync(System.String,System.String,System.String,System.String,System.String,System.Boolean,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Boolean,System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Boolean)">
+            <summary>
+            ENVIO DE EMAIL ASYNC
+            </summary>
+            <param name="nome"></param>
+            <param name="email"></param>
+            <param name="body"></param>
+            <param name="subject"></param>
+            <param name="titleEvent"></param>
+            <param name="invite"></param>
+            <param name="local"></param>
+            <param name="inicio"></param>
+            <param name="utc"></param>
+            <param name="fim"></param>
+            <param name="recorrente"></param>
+            <param name="pathFile"></param>
+            <param name="ccEmails"></param>
+            <param name="ccoEmails"></param>
+            <param name="replyTo"></param>
+            <param name="configureAwait"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Core.SendService.SendMessageEmailAsync(System.String,System.Collections.Generic.List{System.String},System.String,System.String,System.String,System.Boolean,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Boolean,System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Boolean)">
+            <summary>
+            ENVIO DE EMAIL ASYNC
+            </summary>
+            <param name="nome"></param>
+            <param name="email"></param>
+            <param name="body"></param>
+            <param name="subject"></param>
+            <param name="titleEvent"></param>
+            <param name="invite"></param>
+            <param name="local"></param>
+            <param name="inicio"></param>
+            <param name="utc"></param>
+            <param name="fim"></param>
+            <param name="recorrente"></param>
+            <param name="pathFile"></param>
+            <param name="ccoEmails"></param>
+            <param name="replyTo"></param>
+            <param name="configureAwait"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Core.SendService.SendMessageEmailAmazonAsync(System.String,System.Collections.Generic.List{System.String},System.String,System.String,System.String,System.Boolean,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Boolean,System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Boolean)">
+            <summary>
+            ENVIO DE EMAIL AMAZON
+            </summary>
+            <param name="nome"></param>
+            <param name="email"></param>
+            <param name="body"></param>
+            <param name="subject"></param>
+            <param name="titleEvent"></param>
+            <param name="invite"></param>
+            <param name="local"></param>
+            <param name="inicio"></param>
+            <param name="utc"></param>
+            <param name="fim"></param>
+            <param name="recorrente"></param>
+            <param name="pathFile"></param>
+            <param name="ccoEmails"></param>
+            <param name="replyTo"></param>
+            <param name="configureAwait"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Core.SendService.GerateBody(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            
+            </summary>
+            <param name="filename">NOME DO ARQUIVO SEM .HTML</param>
+            <param name="substituicao"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Core.SendService.SendPush(System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.String,System.String,Newtonsoft.Json.Linq.JObject,System.Nullable{System.DateTime},System.Int32,System.Int32,System.String,System.String,System.String,Newtonsoft.Json.Linq.JObject,System.Int32,System.Int32)">
+            <summary>
+            SEND PUSH USING ONESIGNAL
+            </summary>
+            <param name="senderName">NOME DE QUEM ESTA ENVIANDO</param>
+            <param name="message">MENSAGEM </param>
+            <param name="devicePushId">LISTA DE DEVICES</param>
+            <param name="groupName">GROUP NAME</param>
+            <param name="senderPhoto">FOTO NA NOTIFICAÇÃO (ANDROID)</param>
+            <param name="data">PAYLOAD</param>
+            <param name="dataSend">DATA DE ENVIO</param>
+            <param name="indexKeys"></param>
+            <param name="priority">1 or 0  normal / 10 high</param>
+            <param name="url">URL FOR CLICK IN NOTIFICATION</param>
+            <param name="sound">SOUND CUSTON</param>
+            <param name="customIcon"></param>
+            <param name="settings"></param>
+            <param name="messagelength"></param>
+            <param name="titleLength"></param>
+        </member>
+        <member name="M:UtilityFramework.Services.Core.SendService.SendAllDevices(System.String,System.String,System.String,System.String,System.String,Newtonsoft.Json.Linq.JObject,System.Nullable{System.DateTime},System.Int32,System.Int32,System.String,System.String,System.String,Newtonsoft.Json.Linq.JObject,System.Int32,System.Int32)">
+            <summary>
+            Enviar push para todos devices cadastrados ou determinado segmento
+            </summary>
+            <param name="senderName">NOME DE QUEM ESTA ENVIANDO</param>
+            <param name="message">MENSAGEM </param>
+            <param name="groupName">GROUP NAME</param>
+            <param name="senderPhoto">FOTO NA NOTIFICAÇÃO (ANDROID)</param>
+            <param name="segments">SEGMENTAÇÃO DE ENVIO</param>
+            <param name="data">PAYLOAD</param>
+            <param name="dataSend">DATA DE ENVIO</param>
+            <param name="indexKeys"></param>
+            <param name="priority"> 0 or 1 normal / 10 high </param>
+            <param name="url">URL TO OPEN TO CLICK NOTIFICATION</param>
+            <param name="sound">SOUND CUSTON</param>
+            <param name="customIcon"></param>
+            <param name="settings"></param>
+            <param name="messagelength"></param>
+            <param name="titleLength"></param>
+        </member>
+        <member name="M:UtilityFramework.Services.Core.SendService.GetNotification(System.String,System.Int32)">
+            <summary>
+            GET INFO NOTIFICATION
+            </summary>
+            <param name="notificationId"></param>
+            <param name="indexKeys"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Core.SendService.CancelPush(System.String,System.Int32)">
+            <summary>
+            Cancel Schedule notification
+            </summary>
+            <param name="notificationId"></param>
+            <param name="indexKeys"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Core.SendService.SendPushAsync(System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.String,System.String,Newtonsoft.Json.Linq.JObject,System.Nullable{System.DateTime},System.Int32,System.Int32,System.String,System.String,System.String,Newtonsoft.Json.Linq.JObject,System.Boolean,System.Int32,System.Int32)">
+            <summary>
+            ENVIO DE PUSH NOTIFICATION ASYNC
+            </summary>
+            <param name="senderName"></param>
+            <param name="message"></param>
+            <param name="devicePushId"></param>
+            <param name="groupName"></param>
+            <param name="senderPhoto"></param>
+            <param name="data"></param>
+            <param name="dataSend"></param>
+            <param name="indexKeys"></param>
+            <param name="priority"></param>
+            <param name="url"></param>
+            <param name="sound"></param>
+            <param name="customIcon"></param>
+            <param name="settings"></param>
+            <param name="configureAwait"></param>
+            <param name="messagelength"></param>
+            <param name="titleLength"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Core.SendService.SendAllDevicesAsync(System.String,System.String,System.String,System.String,System.String,Newtonsoft.Json.Linq.JObject,System.Nullable{System.DateTime},System.Int32,System.Int32,System.String,System.String,System.String,Newtonsoft.Json.Linq.JObject,System.Boolean,System.Int32,System.Int32)">
+            <summary>
+            ENVIO DE PUSH NOTIFICATION PARA TODOS DEVICES REGISTRADOS ASYNC
+            </summary>
+            <param name="senderName"></param>
+            <param name="message"></param>
+            <param name="groupName"></param>
+            <param name="senderPhoto"></param>
+            <param name="segments"></param>
+            <param name="data"></param>
+            <param name="dataSend"></param>
+            <param name="indexKeys"></param>
+            <param name="priority"></param>
+            <param name="url"></param>
+            <param name="sound"></param>
+            <param name="customIcon"></param>
+            <param name="settings"></param>
+            <param name="configureAwait"></param>
+            <param name="messagelength"></param>
+            <param name="titleLength"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Core.SendService.GetNotificationAsync(System.String,System.Int32,System.Boolean)">
+            <summary>
+            OBTER DETALHS DE UMA NOTIFICAÇÃO PUSH ENVIADA
+            </summary>
+            <param name="notificationId"></param>
+            <param name="indexKeys"></param>
+            <param name="configureAwait"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Core.SendService.CancelPushAsync(System.String,System.Int32,System.Boolean)">
+            <summary>
+            CANCELAR PUSH ENVIADO PELO ID
+            </summary>
+            <param name="notificationId"></param>
+            <param name="indexKeys"></param>
+            <param name="configureAwait"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Core.SenderSmsService.SenderSmsIAgent(System.String,System.String)">
+            <summary>
+            ENVIO DE SMS IAGENT
+            </summary>
+            <param name="phone"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Core.SenderSmsService.SenderSmsIAgentAsync(System.String,System.String,System.Boolean)">
+            <summary>
+            ENVIO DE SMS IAGENT
+            </summary>
+            <param name="phone"></param>
+            <param name="message"></param>
+            <param name="configureAwait"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Core.SenderSmsService.InfobipSenderSmsAsync(System.String,System.String,System.String,System.String,System.Boolean,System.Boolean)">
+            <inheritdoc />
+            <summary>
+            ENVIO DE SMS INFOBIP
+            </summary>
+            <param name="from"></param>
+            <param name="phone"></param>
+            <param name="message"></param>
+            <param name="countryCode"></param>
+            <param name="configureAwait"></param>
+            <param name="removeZeroLeft"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Core.SenderSmsService.InfobipSendSms(System.String,System.String,System.String,System.String,System.Boolean)">
+            <inheritdoc />
+            <summary>
+            ENVIO DE SMS INFOBIT SINCRONO
+            </summary>
+            <param name="from">Nome do app</param>
+            <param name="phone">Numero de telefone no formato DD#####-####</param>
+            <param name="message"></param>
+            <param name="countryCode">Codigo do país </param>
+            <param name="removeZeroLeft"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

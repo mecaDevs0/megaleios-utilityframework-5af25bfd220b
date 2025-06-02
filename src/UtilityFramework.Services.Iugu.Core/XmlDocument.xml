@@ -1,0 +1,2657 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UtilityFramework.Services.Iugu.Core</name>
+    </assembly>
+    <members>
+        <member name="T:UtilityFramework.Services.Iugu.Core.Constants.PaymentMethod">
+            <summary>
+            Forma de pagamento cartão ou boleto
+            </summary>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.Constants.InvoiceStatus">
+            <summary>
+            Status da fatura ex: pago, draft, pendente, cancelado, etc.
+            </summary>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.Constants.BankAccountType">
+            <summary>
+            Os tipos de conta bancária puportados
+            </summary>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.Constants.PersonType">
+            <summary>
+            Os tipos de pessoa puportados
+            </summary>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.Constants.SupportedBanks">
+            <summary>
+            Os bancos suportados
+            </summary>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.Constants.GenerateCycleType">
+            <summary>
+            Os tipos de periodicidade e/ou recorrência
+            </summary>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.Constants.CurrencyTypes">
+            <summary>
+            Modedas disponíveis
+            </summary>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.Constants.CurrencySymbol">
+            <summary>
+            Símbolo de modedas disponíveis
+            </summary>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.Entity.AccountModel">
+            <summary>
+            Modelo que representa a conta de um cliente seja ele pessoa física ou jurídica
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.AccountModel.PriceRange">
+            <summary>
+            Valor máximo da venda('Até R$ 100,00', 'Entre R$ 100,00 e R$ 500,00', 'Mais que R$ 500,00')
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.AccountModel.PhysicalProducts">
+            <summary>
+            Vende produtos físicos
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.AccountModel.BusinessDescription">
+            <summary>
+            Descrição do negócio
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.AccountModel.PersonType">
+            <summary>
+            'Pessoa Física' ou 'Pessoa Jurídica'
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.AccountModel.AcceptAutomaticTransfer">
+            <summary>
+            Saque automático(Recomendamos que envie 'true')
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.AccountModel.CNPJ">
+            <summary>
+            CNPJ caso Pessoa Jurídica
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.AccountModel.CompanyName">
+            <summary>
+            Nome da Empresa, caso Pessoa Jurídica
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.AccountModel.CPF">
+            <summary>
+            CPF caso Pessoa Física
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.AccountModel.Name">
+            <summary>
+            Nome caso Pessoa Física
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.AccountModel.Address">
+            <summary>
+            Endreço Completo
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.AccountModel.Cep">
+            <summary>
+            Cep
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.AccountModel.City">
+            <summary>
+            Cidade
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.AccountModel.State">
+            <summary>
+            Estado
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.AccountModel.Phone">
+            <summary>
+            Telefone comercial
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.AccountModel.RespName">
+            <summary>
+            Nome do Responsável, caso Pessoa Jurídica
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.AccountModel.RespCPF">
+            <summary>
+            CPF do Responsável, caso Pessoa Jurídica
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.AccountModel.Bank">
+            <summary>
+            Nome da instituição bancária 
+            Suportados : 'Itaú', 'Bradesco', 'Caixa Econômica', 'Banco do Brasil', 'Santander'
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.AccountModel.BankAgency">
+            <summary>
+            Agência da Conta
+            Formatos com validação automática(9999-D, 9999)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.AccountModel.AccountType">
+            <summary>
+            Tipo da conta: 'Corrente', 'Poupança'
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.AccountModel.BankAccountNumber">
+            <summary>
+            Número da Conta
+            Formatos com validação automática(99999999-D, XXX99999999-D onde X é Operação, 	9999999-D, 99999-D)
+            </summary>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.Entity.AddressModel">
+            <summary>
+            Model que representa dados de endereço
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.AddressModel.Street">
+            <summary>
+            Rua
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.AddressModel.Number">
+            <summary>
+            Número
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.AddressModel.City">
+            <summary>
+            Cidade
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.AddressModel.State">
+            <summary>
+            Estado (Ex: SP)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.AddressModel.Country">
+            <summary>
+            País
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.AddressModel.ZipCode">
+            <summary>
+            CEP
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.BankSlip.DigitableLine">
+            <summary>
+            Linha digitável
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.BankSlip.BarcodeData">
+            <summary>
+            Dados do código de barras
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.BankSlip.Barcode">
+            <summary>
+            Código de barras
+            </summary>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.Entity.CustomerModel">
+            <summary>
+            Model que representa dados do cliente
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.CustomerModel.ID">
+            <summary>
+            ID do clinte
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.CustomerModel.Email">
+            <summary>
+            Email do cliente
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.CustomerModel.Name">
+            <summary>
+            Nome do cliente (opcional)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.CustomerModel.Notes">
+            <summary>
+            Anotações Gerais do Cliente (opcional)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.CustomerModel.CreatedAt">
+            <summary>
+            Data de criação do Cliente (opcional)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.CustomerModel.UpdatedAt">
+            <summary>
+            Data de modificação do Cliente (opcional)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.CustomerModel.CustomVariables">
+            <summary>
+            Variáveis Personalizadas do Cliente (opcional)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.CustomVariables.Name">
+            <summary>
+            Nome do atributo
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.CustomVariables.Value">
+            <summary>
+            Valor do atributo
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.Logs.Description">
+            <summary>
+            Descrição da Entrada de Log
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.Logs.Notes">
+            <summary>
+            Anotações da Entrada de Log
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.Feature.Name">
+            <summary>
+            Nome da Funcionalidade
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.Feature.Identifier">
+            <summary>
+            Identificador único da funcionalidade
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.Feature.Value">
+            <summary>
+            Valor da Funcionalidade (número maior que 0)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.Prices.Currency">
+            <summary>
+            Moeda do Preço (Somente "BRL" por enquanto)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.Prices.ValueCents">
+            <summary>
+            Preço do Plano em Centavos
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.CreditCard.Number">
+            <summary>
+            Número do Cartão de Crédito
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.CreditCard.VerificationValue">
+            <summary>
+            CVV do Cartão de Crédito
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.CreditCard.FirstName">
+            <summary>
+            Nome do Cliente como está no Cartão
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.CreditCard.LastName">
+            <summary>
+            Sobrenome do Cliente como está no Cartão
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.CreditCard.Month">
+            <summary>
+            Mês de Vencimento no Formato MM (Ex: 01, 02, 12)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.CreditCard.Year">
+            <summary>
+            Ano de Vencimento no Formato YYYY (2014, 2015, 2016)
+            </summary>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.Entity.InvoiceItem">
+            <summary>
+            Representa um item de uma fatura
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.InvoiceItem.Description">
+            <summary>
+            Descrição do Item
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.InvoiceItem.Quantity">
+            <summary>
+            Quantidade
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.InvoiceItem.PriceCents">
+            <summary>
+            Preço em Centavos. Valores negativos entram como desconto no total
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.InvoiceModel.ID">
+            <summary>
+            ID da fatura
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.InvoiceModel.DueDate">
+            <summary>
+            Data de Expiração (DD/MM/AAAA)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.InvoiceModel.Currency">
+            <summary>
+            Moeda
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.InvoiceModel.DiscountCents">
+            <summary>
+            Disconto em centavos
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.InvoiceModel.Email">
+            <summary>
+            E-Mail do cliente
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.InvoiceModel.ItemsTotalCents">
+            <summary>
+            Total de ítens em centavos
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.InvoiceModel.NotificationUrl">
+            <summary>
+            URL chamada para todas as notificações de Fatura, assim como os webhooks (Gatilhos) são chamados
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.InvoiceModel.ReturnUrl">
+            <summary>
+            Cliente é redirecionado para essa URL após efetuar o pagamento da Fatura pela página de Fatura da Iugu
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.InvoiceModel.Status">
+            <summary>
+            Status da fatura
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.InvoiceModel.TaxCents">
+            <summary>
+            Valor dos Impostos em centavos
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.InvoiceModel.UpdatedAt">
+            <summary>
+            Data de modificação
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.InvoiceModel.TotalCents">
+            <summary>
+            Valor total da fatura em centavos
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.InvoiceModel.TotalPaid">
+            <summary>
+            Valor total pago
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.InvoiceModel.TotalPaidCents">
+            <summary>
+            Valor total pago em centavos
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.InvoiceModel.PaidAt">
+            <summary>
+            Data de pagamento da fatura
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.InvoiceModel.PaidCents">
+            <summary>
+            Valoe pago em centavos
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.InvoiceModel.Paid">
+            <summary>
+            Valor pago
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.InvoiceModel.SecureID">
+            <summary>
+            ID seguro da fatura
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.InvoiceModel.SecureUrl">
+            <summary>
+            URL seguro da fatura 
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.InvoiceModel.CustomerID">
+            <summary>
+            ID do Cliente
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.InvoiceModel.UserID">
+            <summary>
+            ID do usuário
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.InvoiceModel.Total">
+            <summary>
+            Total da fatura
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.InvoiceModel.TaxesPaid">
+            <summary>
+            Valor dos impostos pagos
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.InvoiceModel.Interest">
+            <summary>
+            Valor dos juros
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.InvoiceModel.Discount">
+            <summary>
+            Valor do disconto
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.InvoiceModel.CreatedAt">
+            <summary>
+            Data de criação
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.InvoiceModel.Refundable">
+            <summary>
+            Reembolsável (Sim/Não)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.InvoiceModel.Installments">
+            <summary>
+            Parcelas
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.InvoiceModel.BankSlip">
+            <summary>
+            Número do boleto bancário
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.InvoiceModel.Items">
+            <summary>
+            Itens da Fatura
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.InvoiceModel.Variables">
+            <summary>
+            Variaveis da fatura
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.InvoiceModel.CustomVariables">
+            <summary>
+            Variáveis customizadas da fatura
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.InvoiceModel.Logs">
+            <summary>
+            Logs da fatura
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.Item.ID">
+            <summary>
+            ID do ítem
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.Item.Description">
+            <summary>
+            Descrição do ítem
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.Item.PriceCents">
+            <summary>
+            Preço em Centavos. Valores negativos entram como desconto no total da Fatura
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.Item.Quantity">
+            <summary>
+            Quantidade
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.Item.CreatedAt">
+            <summary>
+            Data de criação
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.Item.UpdatedAt">
+            <summary>
+            Data de modificação
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.Item.Price">
+            <summary>
+            Preço
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.Item.Destroy">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.Variable.id">
+            <summary>
+            ID da variavel
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.Variable.variable">
+            <summary>
+            Nome da variavel
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.Variable.Value">
+            <summary>
+            Valor
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.Term.term">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.Term.Count">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.Status.Type">
+            <summary>
+            Type
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.Status.Missing">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.Status.Total">
+            <summary>
+            Total
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.Status.other">
+            <summary>
+            Outro
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.Status.terms">
+            <summary>
+            Termo
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.Facets.Status">
+            <summary>
+            Status
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.Lists.InvoicesModel.Facets">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.Lists.InvoicesModel.TotalItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.Lists.InvoicesModel.Items">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.Entity.PayerModel">
+            <summary>
+            Modelo que representa os dados do cliente que efetua o pagamento
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PayerModel.CpfOrCnpj">
+            <summary>
+            CPF ou CNPJ do Cliente
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PayerModel.Name">
+            <summary>
+            Nome (utilizado como sacado em caso de pagamentos em boleto)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PayerModel.PhonePrefix">
+            <summary>
+            Prefixo do Telefone (Ex: 11 para São Paulo)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PayerModel.Phone">
+            <summary>
+            Telefone
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PayerModel.Email">
+            <summary>
+            E-mail do Cliente
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PayerModel.Address">
+            <summary>
+            Endereço do Cliente (utilizado em caso de pagamento em boleto)
+            </summary>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.Entity.PaymentInfoModel">
+            <summary>
+            Modelo que contém informações de pagamento
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PaymentInfoModel.Number">
+            <summary>
+            Número do Cartão de Crédito
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PaymentInfoModel.VerificationValue">
+            <summary>
+            CVV do Cartão de Crédito
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PaymentInfoModel.FirstName">
+            <summary>
+            Nome do Cliente como está no Cartão
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PaymentInfoModel.LastName">
+            <summary>
+            Sobrenome do Cliente como está no Cartão
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PaymentInfoModel.Month">
+            <summary>
+            Mês de Vencimento no Formato MM (Ex: 01, 02, 12)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PaymentInfoModel.Year">
+            <summary>
+            Ano de Vencimento no Formato YYYY (2014, 2015, 2016)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PaymentMethodModel.ID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PaymentMethodModel.Description">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PaymentMethodModel.ItemType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PaymentMethodModel.Data">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PaymentMethodData.Token">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PaymentMethodData.DisplayNumber">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PaymentMethodData.Brand">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PlanModelsList.TotalItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PlanModelsList.Items">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PlanModel.ID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PlanModel.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PlanModel.Identifier">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PlanModel.Interval">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PlanModel.IntervalType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PlanModel.CreatedAt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PlanModel.UpdatedAt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PlanModel.Prices">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PlanModel.Features">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PlanPrice.CreatedAt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PlanPrice.Currency">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PlanPrice.ID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PlanPrice.PlanID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PlanPrice.UpdatedAt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PlanPrice.ValueCents">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PlanFeature.CreatedAt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PlanFeature.ID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PlanFeature.Identifier">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PlanFeature.Important">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PlanFeature.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PlanFeature.PlanID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PlanFeature.Position">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PlanFeature.UpdatedAt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.PlanFeature.Value">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.SubscriptionModel.ID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.SubscriptionModel.Suspended">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.SubscriptionModel.PlanIdentifier">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.SubscriptionModel.PriceCents">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.SubscriptionModel.Currency">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.SubscriptionModel.Features">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.SubscriptionModel.ExpiresAt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.SubscriptionModel.CreatedAt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.SubscriptionModel.UpdatedAt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.SubscriptionModel.CustomerName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.SubscriptionModel.CustomerEmail">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.SubscriptionModel.CycledAt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.SubscriptionModel.CreditsMin">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.SubscriptionModel.CreditsCycle">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.SubscriptionModel.CustomerID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.SubscriptionModel.PlanName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.SubscriptionModel.CustomerRef">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.SubscriptionModel.PlanRef">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.SubscriptionModel.Active">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.SubscriptionModel.InTrial">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.SubscriptionModel.Credits">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.SubscriptionModel.CreditsBased">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.SubscriptionModel.RecentInvoices">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.SubscriptionModel.Subitems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.SubscriptionModel.Logs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.SubscriptionModel.CustomVariables">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.Feat.Name">
+            <summary>
+            Nome
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.Feat.Value">
+            <summary>
+            Valor
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.SubscriptionFeatures.Feat">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.SubscriptionSubitem.ID">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.SubscriptionSubitem.Description">
+            <summary>
+            Descrição
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.SubscriptionSubitem.Quantity">
+            <summary>
+            Quantidade
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.SubscriptionSubitem.PriceCents">
+            <summary>
+            Valor em centavos
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.SubscriptionSubitem.Price">
+            <summary>
+            Preço
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.SubscriptionSubitem.Total">
+            <summary>
+            Total
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.SubscriptionSubitem.Recurrent">
+            <summary>
+            Recorrente (Sim/Não)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.SubscriptionLog.ID">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.SubscriptionLog.Description">
+            <summary>
+            Descrição
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.SubscriptionLog.Notes">
+            <summary>
+            Observações
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.SubscriptionLog.CreatedAt">
+            <summary>
+            Data de criação
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.TokenModel.ID">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.TokenModel.Method">
+            <summary>
+            Método
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.TransferModel.ID">
+            <summary>
+            ID da transferência
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.TransferModel.CreatedAt">
+            <summary>
+            Data de criação
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.TransferModel.AmountCents">
+            <summary>
+            Valor em centavos
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.TransferModel.AmountLocalized">
+            <summary>
+            Valor localizado
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.TransferModel.Receiver">
+            <summary>
+            Recebedor
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.Receiver.ID">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Entity.Receiver.Name">
+            <summary>
+            Nome
+            </summary>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.PlanIntervalType">
+            <summary>
+            Tipo de intervalos de plano
+            </summary>
+        </member>
+        <member name="F:UtilityFramework.Services.Iugu.Core.PlanIntervalType.Weekly">
+            <summary>
+            Plano com um ciclo semanal
+            </summary>
+        </member>
+        <member name="F:UtilityFramework.Services.Iugu.Core.PlanIntervalType.Monthly">
+            <summary>
+            Plano com um ciclo mensal
+            </summary>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.CurrencyType">
+            <summary>
+            Moedas suportadas
+            </summary>
+        </member>
+        <member name="F:UtilityFramework.Services.Iugu.Core.CurrencyType.BRL">
+            <summary>
+            Moeda brasileira
+            </summary>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.AvailableBanks">
+            <summary>
+            Bancos disponíveis
+            </summary>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.InvoiceAvailableStatus">
+            <summary>
+            Status da fatura
+            </summary>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.PersonType">
+            <summary>
+            Person type
+            </summary>
+        </member>
+        <member name="F:UtilityFramework.Services.Iugu.Core.PersonType.CorporateEntity">
+            <summary>
+            Pessoa Jurídica
+            </summary>
+        </member>
+        <member name="F:UtilityFramework.Services.Iugu.Core.PersonType.IndividualPerson">
+            <summary>
+            Pessoa física
+            </summary>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.BankAccountType">
+            <summary>
+            Bank account type
+            </summary>
+        </member>
+        <member name="F:UtilityFramework.Services.Iugu.Core.BankAccountType.SavingAccount">
+            <summary>
+            Conta poupança
+            </summary>
+        </member>
+        <member name="F:UtilityFramework.Services.Iugu.Core.BankAccountType.CheckingAccount">
+            <summary>
+            Conta Corrente
+            </summary>
+        </member>
+        <member name="F:UtilityFramework.Services.Iugu.Core.BankAccountTypeAbbreviation.CP">
+            <summary>
+            Conta poupança
+            </summary>
+        </member>
+        <member name="F:UtilityFramework.Services.Iugu.Core.BankAccountTypeAbbreviation.CC">
+            <summary>
+            Conta Corrente
+            </summary>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.PaymentMethod">
+            <summary>
+            Metodos de pagamento suportado
+            </summary>
+        </member>
+        <member name="F:UtilityFramework.Services.Iugu.Core.PaymentMethod.All">
+            <summary>
+            Todos os tipos de pagamentos serão aceitos
+            </summary>
+        </member>
+        <member name="F:UtilityFramework.Services.Iugu.Core.PaymentMethod.CreditCard">
+            <summary>
+            Cartão de crédito
+            </summary>
+        </member>
+        <member name="F:UtilityFramework.Services.Iugu.Core.PaymentMethod.BankSlip">
+            <summary>
+            Boleto bancário
+            </summary>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.ResultOrderType">
+            <summary>
+            Tipo de Ordenaçãp
+            </summary>
+        </member>
+        <member name="F:UtilityFramework.Services.Iugu.Core.ResultOrderType.Ascending">
+            <summary>
+            Menor para o maior
+            </summary>
+        </member>
+        <member name="F:UtilityFramework.Services.Iugu.Core.ResultOrderType.Descending">
+            <summary>
+            Maior para o menor
+            </summary>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.FieldSort">
+            <summary>
+            Campos com Ordenações suportadas
+            </summary>
+        </member>
+        <member name="F:UtilityFramework.Services.Iugu.Core.Enums.TriggerEvents.All">
+            <summary>
+            ALL EVENTS
+            </summary>
+        </member>
+        <member name="F:UtilityFramework.Services.Iugu.Core.Enums.TriggerEvents.InvoiceCreated">
+            <summary>
+            FATURA - CRIADA
+            </summary>
+        </member>
+        <member name="F:UtilityFramework.Services.Iugu.Core.Enums.TriggerEvents.InvoiceStatusChanged">
+            <summary>
+            FATURA - STATUS ALTERADO
+            </summary>
+        </member>
+        <member name="F:UtilityFramework.Services.Iugu.Core.Enums.TriggerEvents.InvoiceRefund">
+            <summary>
+            FATURA - ESTORNADA
+            </summary>
+        </member>
+        <member name="F:UtilityFramework.Services.Iugu.Core.Enums.TriggerEvents.InvoicePaymentFailed">
+            <summary>
+            FATURA - PAGAMENTO RECUSADO
+            </summary>
+        </member>
+        <member name="F:UtilityFramework.Services.Iugu.Core.Enums.TriggerEvents.InvoiceDunningAction">
+            <summary>
+            FATURA - 
+            </summary>
+        </member>
+        <member name="F:UtilityFramework.Services.Iugu.Core.Enums.TriggerEvents.InvoiceInstallmentReleased">
+            <summary>
+            FATURA - PARCELA LIBERADA
+            </summary>
+        </member>
+        <member name="F:UtilityFramework.Services.Iugu.Core.Enums.TriggerEvents.InvoiceReleased">
+            <summary>
+            FATURA - LIBERADA
+            </summary>
+        </member>
+        <member name="F:UtilityFramework.Services.Iugu.Core.Enums.TriggerEvents.SubscriptionSuspended">
+            <summary>
+            ASSINATURA - SUSPENSA
+            </summary>
+        </member>
+        <member name="F:UtilityFramework.Services.Iugu.Core.Enums.TriggerEvents.SubscriptionActived">
+            <summary>
+            ASSINATURA - ATIVADA
+            </summary>
+        </member>
+        <member name="F:UtilityFramework.Services.Iugu.Core.Enums.TriggerEvents.SubscriptionCreated">
+            <summary>
+            ASSINATURA - CRIADA
+            </summary>
+        </member>
+        <member name="F:UtilityFramework.Services.Iugu.Core.Enums.TriggerEvents.SubscriptionRenewed">
+            <summary>
+            ASSINATURA - RENOVADA
+            </summary>
+        </member>
+        <member name="F:UtilityFramework.Services.Iugu.Core.Enums.TriggerEvents.SubscriptionExpired">
+            <summary>
+            ASSINATURA - EXPIROU
+            </summary>
+        </member>
+        <member name="F:UtilityFramework.Services.Iugu.Core.Enums.TriggerEvents.SubscriptionChanged">
+            <summary>
+            ASSINATURA - ALTERADA
+            </summary>
+        </member>
+        <member name="F:UtilityFramework.Services.Iugu.Core.Enums.TriggerEvents.ReferralsVerification">
+            <summary>
+            VERIFICAÇÃO
+            </summary>
+        </member>
+        <member name="F:UtilityFramework.Services.Iugu.Core.Enums.TriggerEvents.ReferralsBankVerification">
+            <summary>
+            VERIFICAÇÃO DE DADOS BANCARIOS
+            </summary>
+        </member>
+        <member name="F:UtilityFramework.Services.Iugu.Core.Enums.TriggerEvents.WithdrawRequestCreated">
+            <summary>
+            PEDIDO DE SAQUE 
+            </summary>
+        </member>
+        <member name="F:UtilityFramework.Services.Iugu.Core.Enums.TriggerEvents.WithdrawRequestStatusChanged">
+            <summary>
+            PEDIDO DE SAQUE STATUS ALTERADO
+            </summary>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.Interface.IIuguChargeServices">
+            <summary>
+            TRANSAÇÕES IUGU
+            </summary>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.Interface.IIuguCustomerServices">
+            <summary>
+            CLIENT IUGU
+            </summary>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.Interface.IIuguMarketPlaceServices">
+            <summary>
+            MARKET PLACE
+            </summary>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.Interface.IIuguPaymentMethodService">
+            <summary>
+            FORMAS DE PAGAMENTO
+            </summary>
+        </member>
+        <member name="M:UtilityFramework.Services.Iugu.Core.IuguService.SaveClient(UtilityFramework.Services.Iugu.Core.Models.IuguCustomerCreated)">
+            <summary>
+            SAVE CLIENT
+            </summary>
+            <param name="customer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Iugu.Core.IuguService.UpdateClient(UtilityFramework.Services.Iugu.Core.Models.IuguCustomerCreated)">
+            <summary>
+            UPDATE NAME/EMAIL  CLIENT IUGU
+            </summary>
+            <param name="customer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Iugu.Core.IuguService.DeleteClient(System.String)">
+            <summary>
+            Remover um cliente
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:UtilityFramework.Services.Iugu.Core.IuguService.SaveCreditCard(UtilityFramework.Services.Iugu.Core.Models.IuguPaymentMethodToken)">
+            <summary>
+            GERATE TOKEN FOR CREDIT CARD
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Iugu.Core.IuguService.LinkCreditCardClient(UtilityFramework.Services.Iugu.Core.Models.IuguCustomerPaymentMethod,System.String)">
+            <summary>
+            REGISTER CREDIT CARD FOR PROFILE
+            </summary>
+            <param name="model"></param>
+            <param name="clienteId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Iugu.Core.IuguService.RemoverCredCard(System.String,System.String)">
+            <summary>
+            REMOVE UM CART�O DO CLIENTE
+            </summary>
+            <param name="clientId"></param>
+            <param name="cardId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Iugu.Core.IuguService.ListarCredCards(System.String)">
+            <summary>
+             LISTA OS CARTÕES DE UM CLIENTE
+            </summary>
+            <param name="clientId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Iugu.Core.IuguService.BuscarCredCards(System.String,System.String)">
+            <summary>
+             BUSCA CARTÃO NA BASE DA IUGU
+            </summary>
+            <param name="clientId"></param>
+            <param name="cardId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Iugu.Core.IuguService.TransacaoCrediCard(UtilityFramework.Services.Iugu.Core.Models.IuguChargeRequest,System.String,System.String,System.String,System.String)">
+            <summary>
+            TRANSA��O DIRETA OU COM CART�O DE CREDITO SALVO
+            </summary>
+            <param name="model"></param>
+            <param name="clienteId"></param>
+            <param name="idCartao"></param>
+            <param name="token"></param>
+            <param name="apiToken">em caso de subconta</param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Iugu.Core.IuguService.EstornarFatura(System.String)">
+            <summary>
+            ESTORNAR VALOR COBRADO NO CART�O DE CREDITO
+            </summary>
+            <param name="invoiceId">ID DA FATURA</param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Iugu.Core.IuguService.GerarAssinatura(UtilityFramework.Services.Iugu.Core.Request.SubscriptionRequestMessage,System.String)">
+            <summary>
+            GERAR ASSINATURA
+            </summary>
+            <param name="apiToken">live key da subconta (opcional) uso padrão da conta master</param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Iugu.Core.IuguService.AtivarAsinatura(System.String,System.String)">
+            <summary>
+            ACTIVE SIGNATURE
+            </summary>
+            <param name="signatureId"></param>
+            <param name="apiToken">live key da subconta (opcional) uso padrão da conta master</param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Iugu.Core.IuguService.SuspenderAssinatura(System.String,System.String)">
+            <summary>
+            CANCELAR ASSINATURA
+            </summary>
+            <param name="signatureId"></param>
+            <param name="apiToken">live key da subconta (opcional) uso padrão da conta master</param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Iugu.Core.IuguService.CriarPlano(UtilityFramework.Services.Iugu.Core.Models.IuguPlanModel,System.String)">
+            <summary>
+            CRIAR PLANO
+            </summary>
+            <param name="model"></param>
+            <param name="apiToken">live key da subconta (opcional) uso padrão da conta master</param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Iugu.Core.IuguService.UpdatePlano(System.String,UtilityFramework.Services.Iugu.Core.Models.IuguPlanModel,System.String)">
+            <summary>
+            ATUALIZAR PLANO
+            </summary>
+            <param name="planId"></param>
+            <param name="model"></param>
+            <param name="apiToken">live key da subconta (opcional) uso padrão da conta master</param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Iugu.Core.IuguService.RepasseValores(System.String,System.String,System.Decimal,System.String,System.Boolean)">
+            <summary>
+            REPASSAR VALOR PARA SUBCONTA
+            </summary>
+            <param name="apiTokenSubConta">API TOKEN DA SUBCONTA IRA RECEBER O VALOR</param>
+            <param name="accoutId">ID DA SUBCONTA QUE IRA RECEBER O VALOR</param>
+            <param name="valorDecimal">VALOR DO REPASSE</param>
+            <param name="apiTokenMaster">API TOKEM DA CONTA MASTER CASO N�O INFORMADO SERA UTILIZADO DAS CONFIGURA��ES</param>
+            <param name="toWithdraw">REPASSE AUTOMATICO</param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Iugu.Core.IuguService.SolicitarSaque(System.String,System.Decimal,System.String)">
+            <summary>
+            SOLICITAR TRANSFERENCIA DE VALORES DA IUGU PARA UMA SUBCONTA OU CONTA MASTER
+            </summary>
+            <param name="accoutId"></param>
+            <param name="valorSaque"></param>
+            <param name="apiToken">live key da subconta (opcional) uso padrão da conta master</param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Iugu.Core.IuguService.CriarSubConta(UtilityFramework.Services.Iugu.Core.Models.IuguAccountRequestModel)">
+            <summary>
+            Cadastar SubConta
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Iugu.Core.IuguService.VerificarSubConta(UtilityFramework.Services.Iugu.Core.Models.IuguAccountVerificationModel,System.String,System.String)">
+            <summary>
+            verificar subConta
+            </summary>
+            <param name="model"></param>
+            <param name="userApiToken"></param>
+            <param name="accoutId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Iugu.Core.IuguService.AtualizarDadosBancariosSubConta(UtilityFramework.Services.Iugu.Core.Request.IuguUpdateDataBank,System.String)">
+            <summary>
+            UPDATE DE DADOS BANCARIOS
+            </summary>
+            <param name="model"></param>
+            <param name="userApiToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Iugu.Core.IuguService.VerificarAtualizacaoDadosBancariosSubConta(System.String)">
+            <summary>
+            VERIFICAR ATUALIZA��ES DE DADOS BANCARIOS
+            </summary>
+            <param name="model"></param>
+            <param name="userApiToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Iugu.Core.IuguService.GetInfoSubConta(System.String,System.String)">
+            <summary>
+            RETORNA INFO DA SUBCONTA
+            </summary>
+            <param name="accoutId">ID DA SUB CONTA</param>
+            <param name="apiToken">API TOKEN DA SUBCONTA</param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Iugu.Core.IuguService.GetAccounts(UtilityFramework.Services.Iugu.Core.Models.IuguAccountFilterModel,System.String)">
+            <summary>
+            LISTAR SUBCONTAS
+            </summary>
+            <param name="filter">filtro</param>
+            <param name="apiToken">API TOKEN OPTIONAL</param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Iugu.Core.IuguUtility.MapErrors(RestSharp.IRestResponse)">
+            <summary>
+            gera response de erro
+            </summary>
+            <param name="response"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Iugu.Core.IuguUtility.IuguMapErrors``1(RestSharp.IRestResponse)">
+            <summary>
+            gera response de erro
+            </summary>
+            <param name="response"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Iugu.Core.IuguUtility.ValidAccoutBank(System.String,System.String,System.String,System.String)">
+            <summary>
+            valida dados bancarios
+            </summary>
+            <param name="conta"></param>
+            <param name="banco">BANCO = NOME</param>
+            <param name="typeAccount">TIPO DE CONTA</param>
+            <param name="typePerson">Pessoa Física / Pessoa Júridica</param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Iugu.Core.IuguUtility.ValidAgencyBank(System.String,System.String)">
+            <summary>
+            VALIDAR AGENCIA
+            </summary>
+            <param name="agencia"></param>
+            <param name="banco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Iugu.Core.IuguUtility.GetCodeBank(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="bank"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Iugu.Core.IuguUtility.GetTypeAccout(System.String)">
+            <summary>
+            ONLY USE UPDATE DATA BANK
+            </summary>
+            <param name="typeAccount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilityFramework.Services.Iugu.Core.IuguUtility.STATUS_LR(System.String)">
+            <summary>
+            Retorna mensagem de erro de acordo com código da IUGU
+            </summary>
+            <param name="codeErro"></param>
+            <returns></returns>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Models.DataBankViewModel.Name">
+            <summary>
+            NOME FANTASIA
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Models.DataBankViewModel.SocialName">
+            <summary>
+            RAZÃO SOCIAL
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Models.DataBankViewModel.AccountType">
+            <summary>
+             DEFAULT corrente | 'Corrente' 'Poupança'
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Models.DataBankViewModel.Address">
+            <summary>
+            ENDEREÇO
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Models.DataBankViewModel.Accountable">
+            <summary>
+            RESPONSAVEL
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Models.DataBankViewModel.AccountableCpf">
+            <summary>
+            CASO PESSOA JURIDICA ENVIAR CPF DO TITULAR DA CONTA
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Models.DataBankViewModel.Cpf">
+            <summary>
+            CASO PESSOA FISICA
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Models.DataBankViewModel.PersonType">
+            <summary>
+            DEFAULT | Pessoa Fisíca  | TYPES = 'Pessoa Física' ou 'Pessoa Jurídica'
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Models.DataBankViewModel.BusinessType">
+            <summary>
+            Descrição do negócio
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Models.DataBankViewModel.Cnpj">
+            <summary>
+            CASO PESSOA JURIDICA 
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Models.DataBankViewModel.PriceRange">
+            <summary>
+             DEFAULT = "Mais que R$ 1,00" |  EX: Valor máximo da venda ('Até R$ 100,00', 'Entre R$ 100,00 e R$ 500,00', 'Mais que R$ 500,00')
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Models.DataBankViewModel.AutomaticValidation">
+            <summary>
+             VERIFICAÇÃO AUTOMATICA | DEFAULT = TRUE
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Models.DataBankViewModel.AutomaticTransfer">
+            <summary>
+            SOLICITAR AQUE AUTOMATICO | DEFAULT = TRUE
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Models.DataBankViewModel.PhysicalProducts">
+            <summary>
+            VENDE PRODUTOS FISICOS 
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Models.IuguAccountDataVerificationModel.BusinessType">
+            <summary>
+            RAMO DA EMPRESA
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Models.IuguAccountDataVerificationModel.PersonType">
+            <summary>
+            Pessoa Física / Pessoa Jurídica
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Models.IuguAccountDataVerificationModel.AccountType">
+            <summary>
+            CORRENTE  / POUPANÇA
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Models.IuguChargeResponse.Url">
+            <summary>
+            Url do boleto
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Models.IuguChargeResponse.Success">
+            <summary>
+            Informa se a cobrança foi gerada com sucesso
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Models.IuguChargeResponse.InvoiceId">
+            <summary>
+            Número da fatura da cobrança
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Models.IuguChargeResponse.Message">
+            <summary>
+            Mensagem de resposta
+            </summary>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.Models.IuguCreditCard">
+            <summary>
+            FORMA DE PAGAMENTO
+            </summary>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.Models.Data">
+            <summary>
+            DADOS DO CARTÃO
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.AccountConfigurationRequestMessage.CommissionPercent">
+            <summary>
+            Percentual de comissionamento enviado para a conta que gerencia o marketplace (Valor entre 0 e 70)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.AccountConfigurationRequestMessage.AutoWithdraw">
+            <summary>
+            Saque automático
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.AccountConfigurationRequestMessage.Fines">
+            <summary>
+            Multa
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.AccountConfigurationRequestMessage.PerDayInterest">
+            <summary>
+            Juros de mora
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.AccountConfigurationRequestMessage.LatePaymentFine">
+            <summary>
+            Valor da multa em % (Ex: 2)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.AccountConfigurationRequestMessage.AutoAdvance">
+            <summary>
+            Antecipação Automática. Só pode ser atribuído caso a conta tenha a funcionalidade de Novo Adiantamento habilitado (entre em contato com o Suporte para habilitar)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.AccountConfigurationRequestMessage.AutoAdvanceType">
+            <summary>
+            Opções de Antecipação Automática. Obrigatório caso auto_advance seja true. Recebe os valores 'daily' (Antecipação diária), 'weekly' 
+            (Antecipação semanal, que ocorre no dia da semana determinado pelo usuário), 'monthly' (Antecipação mensal, que ocorre no dia do
+            mês determinado pelo usuário) e 'days_after_payment' (Antecipação que ocorre em um número de dias após o pagamento especificado pelo usuário)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.AccountConfigurationRequestMessage.AutoAdvanceOption">
+            <summary>
+            Obrigatório caso auto_advance seja true e auto_advance_type diferente de 'daily'. Em caso de auto_advance_type = weekly, recebe valores de 0 a 6
+            (Número correspondente ao dia da semana que a antecipação será realizada, 0 para domingo, 1 para segunda e assim por diante). Em caso de auto_advance_type = monthly, 
+            recebe valores de 1 a 28 (Número correspondente ao dia do mês que a antecipação será realizada).  Em caso de auto_advance_type = days_after_payment,
+            recebe valores de 1 a 30 (Número de dias após o pagamento em que a antecipação será realizada)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.AccountConfigurationRequestMessage.BankSlipOptions">
+            <summary>
+            Configurações de Boleto Bancário
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.AccountConfigurationRequestMessage.CreditCardOptions">
+            <summary>
+            Configurações de Cartão de Crédito
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.BankSlipOptions.Active">
+            <summary>
+            Ativo
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.BankSlipOptions.ExtraDueDays">
+            <summary>
+            Dias de Vencimento Extras no Boleto (Ex: 2)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.BankSlipOptions.ReprintExtraDueDays">
+            <summary>
+            Dias de Vencimento Extras na 2a Via do Boleto (Ex: 1)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.CreditCardOptions.Active">
+            <summary>
+            Ativo
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.CreditCardOptions.SoftDescriptor">
+            <summary>
+            Descrição que apareça na Fatura do Cartão do Cliente (Máx: 12 Caractéres)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.CreditCardOptions.Installments">
+            <summary>
+            Ativar parcelamento
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.CreditCardOptions.InstallmentsPassInterest">
+            <summary>
+            Repasse de Juros de Parcelamento ativo? true ou false
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.CreditCardOptions.MaxInstallments">
+            <summary>
+            Número máximo de parcelas (Nr entre 1 a 12)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.CreditCardOptions.MaxInstallmentsWithoutInterest">
+            <summary>
+            Número de parcelas sem cobrança de juros ao cliente (Nr entre 1 a 12)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.CreditCardOptions.TwoStepTransaction">
+            <summary>
+            Habilita o fluxo de pagamento em duas etapas (Autorização e Captura)
+            </summary>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.Request.AccountRequestMessage">
+            <summary>
+            Requisição para a API de contas
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.AccountRequestMessage.Name">
+            <summary>
+            Nome da Conta. Caso não seja enviado, um valor padrão com o ID da conta é atribuído
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.AccountRequestMessage.CommissionPercent">
+            <summary>
+            Percentual de comissionamento enviado para a conta que gerencia o marketplace (Valor entre 0 e 70)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.BankVerificationRequestMessage.BankNumber">
+            <summary>
+            Nome da instituição bancária 
+            Suportados : "001" para Banco do Brasil, "033" para Santander, "104" para Caixa Econômica, "237" para Bradesco, "341" para Itaú e "399" para HSBC
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.BankVerificationRequestMessage.BankAgency">
+            <summary>
+            Agência da Conta
+            Formatos com validação automática(9999-D, 9999)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.BankVerificationRequestMessage.AccountType">
+            <summary>
+            Tipo da Conta ("cc" para Conta Corrente e "cp" para Conta Poupança)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.BankVerificationRequestMessage.BankAccountNumber">
+            <summary>
+            Número da Conta
+            Formatos com validação automática(99999999-D, XXX99999999-D onde X é Operação, 	9999999-D, 99999-D)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.BankVerificationRequestMessage.AutomaticValidation">
+            <summary>
+            Para validar os dados bancários através do dígito verificador
+            </summary>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.Request.ChargeRequestMessage">
+            <summary>
+            Requisição para efetuar uma cobrança, no momento apenas suporte a boletos
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.ChargeRequestMessage.Method">
+            <summary>
+            Método de Pagamento (Atualmente só suporta bank_slip, que é o boleto) - Opicional se enviar o Token
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.ChargeRequestMessage.Token">
+            <summary>
+            ID do Token. Em caso de Marketplace, é possível enviar um token criado pela conta mestre - Opicional caso method seja bank_slip
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.ChargeRequestMessage.CustomerPaymentMethodId">
+            <summary>
+            ID da Forma de Pagamento do Cliente. Em caso de Marketplace, é possível enviar um customer_payment_method_id de um Cliente criado pela conta mestre
+            Opcional caso method seja bank_slip ou utilize token)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.ChargeRequestMessage.CustomerId">
+            <summary>
+            ID do Cliente. Utilizado para vincular a Fatura a um Cliente - Opcional
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.ChargeRequestMessage.InvoiceId">
+            <summary>
+            ID da Fatura a ser utilizada para pagamento - Opcional
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.ChargeRequestMessage.Email">
+            <summary>
+            E-mail do Cliente - Opcional caso seja enviado um invoice_id
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.ChargeRequestMessage.Months">
+            <summary>
+            Número de Parcelas (2 até 12), não é necessário passar 1 - Opcional
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.ChargeRequestMessage.DiscountCents">
+            <summary>
+            Valor dos Descontos em centavos. Funciona apenas para Cobranças Diretas criadas com Itens - Opcional
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.ChargeRequestMessage.InvoiceItems">
+            <summary>
+            Itens da Fatura que será gerada - Opcional caso seja enviado um invoice_id
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.ChargeRequestMessage.PayerCustomer">
+            <summary>
+            Informações do Cliente para o Anti Fraude ou Boleto
+            Necessário caso sua conta necessite de anti fraude ou para informações do boleto
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.CustomerRequestMessage.Email">
+            <summary>
+            E-Mail do Cliente
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.CustomerRequestMessage.Name">
+            <summary>
+            Nome do Cliente
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.CustomerRequestMessage.CpfOrCnpj">
+            <summary>
+            E-Mail do Cliente
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.CustomerRequestMessage.WithCopyEmails">
+            <summary>
+            Endereços de E-mail para cópia separados por vírgula.
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.CustomerRequestMessage.Notes">
+            <summary>
+            Anotações Gerais do Cliente
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.CustomerRequestMessage.CustomVariables">
+            <summary>
+             Variáveis Personalizadas
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.EarlyPaymentDiscountsModel.ValueCents">
+            <summary>
+            VALOR EM CENTAVOS DO DESCONTO
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.EarlyPaymentDiscountsModel.Percent">
+            <summary>
+            PORCENTAGEM DE DESCONTO
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.EarlyPaymentDiscountsModel.Days">
+            <summary>
+             DIAS ANTES DO VENCIMENTOS
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.Request.FinancialTransactionRequestMessage">
+            <summary>
+            Requisição para a API de contas
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.FinancialTransactionRequestMessage.Transactions">
+            <summary>
+             Variáveis Personalizadas
+            </summary>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.Request.InvoiceDuplicateRequestMessage">
+            <summary>
+             Gera segunda via de uma Fatura. Somente faturas pendentes podem ter segunda via gerada. A fatura atual é cancelada e uma nova é gerada com status ‘pending’.
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.InvoiceDuplicateRequestMessage.NewDueDate">
+            <summary>
+            Nova data de expiração (Formato: 'DD/MM/AAAA’).
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.InvoiceDuplicateRequestMessage.InvoiceItems">
+            <summary>
+            Adicione, altere ou remova itens a nova fatura.
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.InvoiceDuplicateRequestMessage.IgnoreDueEmail">
+            <summary>
+            Ignora o envio do e-mail de cobrança da nova fatura.
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.InvoiceDuplicateRequestMessage.IgnoreCanceledEmail">
+            <summary>
+            Ignora o envio do e-mail de cancelamento da fatura atual.
+            </summary>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.Request.InvoiceRequestMessage">
+            <summary>
+            Objeto que representa request de criação de fartura
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.InvoiceRequestMessage.Email">
+            <summary>
+            E-Mail do cliente
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.InvoiceRequestMessage.DueDate">
+            <summary>
+            Data de Expiração (DD/MM/AAAA) - (AAAA/MM/DD)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.InvoiceRequestMessage.Items">
+            <summary>
+             Itens da Fatura
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.InvoiceRequestMessage.Payer">
+            <summary>
+            Informações do Cliente para o Anti Fraude ou Boleto
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.InvoiceRequestMessage.ReturnUrl">
+            <summary>
+            (opcional) Cliente é redirecionado para essa URL após efetuar o pagamento da Fatura pela página de Fatura da Iugu
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.InvoiceRequestMessage.ExpiredUrl">
+            <summary>
+            (opcional) Cliente é redirecionado para essa URL se a Fatura que estiver acessando estiver expirada
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.InvoiceRequestMessage.NotificationUrl">
+            <summary>
+            (opcional) URL chamada para todas as notificações de Fatura, assim como os webhooks (Gatilhos) são chamados
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.InvoiceRequestMessage.TaxCents">
+            <summary>
+            (opcional) Valor dos Impostos em centavos
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.InvoiceRequestMessage.Fines">
+            <summary>
+            (opcional) Booleano para Habilitar ou Desabilitar multa por atraso de pagamento
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.InvoiceRequestMessage.LatePaymentFine">
+            <summary>
+            (opcional) Determine a multa a ser cobrada para pagamentos efetuados após a data de vencimento
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.InvoiceRequestMessage.PerDayInterest">
+            <summary>
+            (opcional) Booleano que determina se cobra ou não juros por dia de atraso. 1% ao mês pro rata.
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.InvoiceRequestMessage.DiscountCents">
+            <summary>
+            (opcional) Valor dos Descontos em centavos
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.InvoiceRequestMessage.CustomerId">
+            <summary>
+            (opcional) ID do Cliente
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.InvoiceRequestMessage.IgnoreDueEmail">
+            <summary>
+            (opcional) Booleano que ignora o envio do e-mail de cobrança
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.InvoiceRequestMessage.SubscriptionId">
+            <summary>
+            (opcional) Amarra esta Fatura com a Assinatura especificada
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.InvoiceRequestMessage.PayableWith">
+            <summary>
+            (opcional) Método de pagamento que será disponibilizado para esta Fatura (‘all’, ‘credit_card’ ou ‘bank_slip’). 
+            Obs: Caso esta Fatura esteja atrelada à uma Assinatura, a prioridade é herdar o valor atribuído na Assinatura; 
+            caso esta esteja atribuído o valor ‘all’, o sistema considerará o payable_with da Fatura; se não, o sistema considerará o payable_with da Assinatura.
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.InvoiceRequestMessage.Credits">
+            <summary>
+            (opcional) Caso tenha o subscription_id, pode-se enviar o número de créditos a adicionar nessa Assinatura quando a Fatura for paga
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.InvoiceRequestMessage.Logs">
+            <summary>
+            (opcional) Logs da Fatura
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.InvoiceRequestMessage.CustomVariables">
+            <summary>
+            (opcional) Variáveis Personalizadas
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.InvoiceRequestMessage.EarlyPaymentDiscount">
+            <summary>
+            (Opcional) Ativa ou desativa os descontos por pagamento antecipado. Quando true, sobrepõe as configurações de desconto da conta
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.InvoiceRequestMessage.EarlyPaymentDiscounts">
+            <summary>
+            (Opcional) Quantidade de dias de antecedência para o pagamento receber o desconto (Se enviado, substituirá a configuração atual da conta)
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.InvoiceRequestMessage.EnsureWorkdayDueDate">
+            <summary>
+            (Opcional) Se true, garante que a data de vencimento seja apenas em dias de semana, e não em sábados ou domingos.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.InvoiceRequestMessage.CcEmails">
+            <summary>
+            (Opcional) Endereços de E-mail para cópia separados por ponto e vírgula.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.InvoiceRequestMessage.OrderId">
+            <summary>
+            (Opcional) Número único que identifica o pedido de compra. Opcional, ajuda a evitar o pagamento da mesma fatura.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.IuguUpdateDataBank.Bank">
+            <summary>
+            CODIGO DO BANCO
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.IuguUpdateDataBank.AccountType">
+            <summary>
+            CC / CP
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.PaymentTokenRequestMessage.AccountId">
+            <summary>
+            ID de sua Conta na Iugu (O ID de sua conta pode ser encontrado clicando na referência)
+            <see cref="!:https://iugu.com/settings/account"/>
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.PaymentTokenRequestMessage.Method">
+            <summary>
+            Método de Pagamento (atualmente somente credit_card)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.PaymentTokenRequestMessage.Test">
+            <summary>
+            Valor true para criar tokens de teste
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.PaymentTokenRequestMessage.PaymentData">
+            <summary>
+            Dados do Método de Pagamento
+            </summary>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.Request.PlanRequestMessage">
+            <summary>
+            Representa os parametros para se criar um plano
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.PlanRequestMessage.Name">
+            <summary>
+            Nome do Plano
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.PlanRequestMessage.UniqueIdentifier">
+            <summary>
+            Identificador do Plano
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.PlanRequestMessage.Cycle">
+            <summary>
+            Ciclo do Plano (Número inteiro maior que 0)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.PlanRequestMessage.IntervalType">
+            <summary>
+            Tipo de Interval ("weeks" ou "months")
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.PlanRequestMessage.CurrencyTypeName">
+            <summary>
+            Moeda do Preço (Somente "BRL" por enquanto)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.PlanRequestMessage.ValueInCents">
+            <summary>
+            Preço do Plano em Centavos
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.PlanRequestMessage.PaymentMethod">
+            <summary>
+            Método de pagamento que será disponibilizado para as Faturas pertencentes a Assinaturas deste Plano ('all', 'credit_card' ou 'bank_slip')
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.PlanRequestMessage.Prices">
+            <summary>
+            Preços do Plano
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.PlanRequestMessage.Features">
+            <summary>
+            Funcionalidades do Plano
+            </summary>
+        </member>
+        <member name="M:UtilityFramework.Services.Iugu.Core.Request.PlanRequestMessage.#ctor(System.String,System.String,System.Int32,UtilityFramework.Services.Iugu.Core.PlanIntervalType,System.Int32,UtilityFramework.Services.Iugu.Core.CurrencyType)">
+            <summary>
+            Plan request message
+            </summary>
+            <param name="name">Nome do plano</param>
+            <param name="uniqueIdentifier">Identificador do plano Ex: basic_plan, 1x</param>
+            <param name="cycle">Valor positivo, que representa de quanto em quanto tempo se aplica o intervalo Ex: ciclo 1, intervalo mensal (a cada mês)</param>
+            <param name="interval">Tipo do intervalo, Mensal ou Semanal</param>
+            <param name="valueInCents">valor do plano em centavos</param>
+            <param name="currency">moeda utilizada, atualmente suportamos apenas Real</param>
+        </member>
+        <member name="M:UtilityFramework.Services.Iugu.Core.Request.PlanRequestMessage.#ctor(System.String,System.String,System.Int32,UtilityFramework.Services.Iugu.Core.PlanIntervalType,System.Int32)">
+            <summary>
+            Plan request message
+            </summary>
+            <param name="name">Nome do plano</param>
+            <param name="uniqueIdentifier">Identificador do plano Ex: basic_plan, 1x</param>
+            <param name="cycle">De quanto em quanto tempo se aplica o intervalo Ex: ciclo 1, intervalo mensal (a cada mês)</param>
+            <param name="interval">Tipo do intervalo, Mensal ou Semanal</param>
+            <param name="valueInCents">valor do plano em centavos</param>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.Request.SubscriptionRequestMessage">
+            <summary>
+            Cria uma assinatura para um cliente cadastrado
+            <see cref="!:https://iugu.com/referencias/api#criar-uma-assinatura"/>
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.SubscriptionRequestMessage.CustomerId">
+            <summary>
+            ID do Cliente
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.SubscriptionRequestMessage.PlanId">
+            <summary>
+            Identificador do Plano. Só é enviado para assinaturas que não são credits_based
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.SubscriptionRequestMessage.ExpiresAt">
+            <summary>
+            Data de Expiração (Também é a data da próxima cobrança)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.SubscriptionRequestMessage.OnlyOnChargeSuccess">
+            <summary>
+            Apenas Cria a Assinatura se a Cobrança for bem sucedida. Isso só funciona caso o cliente já tenha uma forma de pagamento padrão cadastrada
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.SubscriptionRequestMessage.PayableWith">
+            <summary>
+            Método de pagamento que será disponibilizado para as Faturas desta Assinatura (all, credit_card ou bank_slip). 
+            Obs: Dependendo do valor, este atributo será herdado, pois a prioridade é herdar o valor atribuído ao Plano desta Assinatura;
+            Caso este esteja atribuído o valor ‘all’, o sistema considerará o payable_with da Assinatura; se não, o sistema considerará o payable_with do Plano
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.SubscriptionRequestMessage.IsCreditBased">
+            <summary>
+            É uma assinatura baseada em créditos
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.SubscriptionRequestMessage.PriceCents">
+            <summary>
+            Preço em centavos da recarga para assinaturas baseadas em crédito
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.SubscriptionRequestMessage.CreditsCycle">
+            <summary>
+            Quantidade de créditos adicionados a cada ciclo, só enviado para assinaturas credits_based
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.SubscriptionRequestMessage.CreditsMin">
+            <summary>
+            Quantidade de créditos que ativa o ciclo, por ex: Efetuar cobrança cada vez que a assinatura tenha apenas 1 crédito sobrando. Esse 1 crédito é o credits_min
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.SubscriptionRequestMessage.Subitems">
+            <summary>
+            Itens de Assinatura, sendo que estes podem ser recorrentes ou de cobrança única
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Request.SubscriptionRequestMessage.CustomVariables">
+            <summary>
+            Variáveis Personalizadas
+            </summary>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.Request.VerifyAccountRequestMessage">
+            <summary>
+            Request para solicitar validação dos dados de uma conta
+            </summary>
+        </member>
+        <member name="F:UtilityFramework.Services.Iugu.Core.Request.VerifyAccountRequestMessage.Data">
+            <summary>
+            Informações da conta a ser verificada
+            Obs: Essas informações serão adicionadas as informações da conta
+            </summary>
+        </member>
+        <member name="F:UtilityFramework.Services.Iugu.Core.Request.VerifyAccountRequestMessage.AutomaticValidation">
+            <summary>
+            Habilitar a rerificação automática dos dados bancários
+            </summary>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.Response.AccountRequestWithdrawResponseMessage">
+            <summary>
+            Resposta da Api de pedido de saque
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.AccountRequestWithdrawResponseMessage.OperationId">
+            <summary>
+            Id que identifica o pedido de saque efetuado
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.AccountRequestWithdrawResponseMessage.WithdrawValue">
+            <summary>
+            Valor solicitado para saque
+            </summary>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.Response.AccountResponseMessage">
+            <summary>
+            Requisição para a API de conta 
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.AccountResponseMessage.AccountId">
+            <summary>
+            Id da conta
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.AccountResponseMessage.Name">
+            <summary>
+            Nome da conta
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.AccountResponseMessage.LiveApiToken">
+            <summary>
+            Token de produção
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.AccountResponseMessage.TestApiToken">
+            <summary>
+            Token de teste
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.AccountResponseMessage.UserToken">
+            <summary>
+            Token do usuário, usado em algumas APIs específicas
+            </summary>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.Response.ChargeResponseMessage">
+            <summary>
+            Representa a resposta da API para uma requisição de cobrança direta
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.ChargeResponseMessage.Errors">
+            <summary>
+            Erros
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.ChargeResponseMessage.Url">
+            <summary>
+            Url do boleto
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.ChargeResponseMessage.Success">
+            <summary>
+            Informa se a cobrança foi gerada com sucesso
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.ChargeResponseMessage.InvoiceId">
+            <summary>
+            Número da fatura da cobrança
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.ChargeResponseMessage.Message">
+            <summary>
+            Mensagem de resposta
+            </summary>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.Response.GetAccountResponseMessage">
+            <summary>
+            Resposta da API de contas ao obter 1 conta
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.GetAccountResponseMessage.AccountId">
+            <summary>
+            Identificação da conta
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.GetAccountResponseMessage.Name">
+            <summary>
+            Nome da conta
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.GetAccountResponseMessage.CreatedAt">
+            <summary>
+            Data de criação
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.GetAccountResponseMessage.UpdatedAt">
+            <summary>
+            Data da ultima atualização
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.GetAccountResponseMessage.CanReceive">
+            <summary>
+            Pode receber pagamentos
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.GetAccountResponseMessage.IsVerified">
+            <summary>
+            Conta já foi verificada
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.GetAccountResponseMessage.LastAccountVerificationRequestStatus">
+            <summary>
+            Último status de verificação da conta
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.GetAccountResponseMessage.LastAccountVerificationRequestData">
+            <summary>
+            Dados enviados na última requisição de verificação
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.GetAccountResponseMessage.LastAccountVerificationRequestDataFeedback">
+            <summary>
+            Descrição do motivo de rejeição da verificação da conta, caso contrário é nulo
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.GetAccountResponseMessage.ChangePlanType">
+            <summary>
+            Tipo do plano
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.GetAccountResponseMessage.SubscriptionsTrialPeriod">
+            <summary>
+            Dias do periodo trieal
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.GetAccountResponseMessage.DisableEmails">
+            <summary>
+            Desabilitar envio de emails
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.GetAccountResponseMessage.LastWithdraw">
+            <summary>
+            Último saque
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.GetAccountResponseMessage.TotalSubscriptions">
+            <summary>
+            Total de assinantes
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.GetAccountResponseMessage.ReplyToEmail">
+            <summary>
+            Email de reply
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.GetAccountResponseMessage.RunningInTestMode">
+            <summary>
+            Está executando em modo teste
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.GetAccountResponseMessage.IsMarketplace">
+            <summary>
+            Identifica se a conta é de um marketplace
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.GetAccountResponseMessage.EnableAutoWithdraw">
+            <summary>
+            Retirada automática habilitada
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.GetAccountResponseMessage.Balance">
+            <summary>
+            Balanço do periodo
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.GetAccountResponseMessage.ProtectedBalance">
+            <summary>
+            Balanço protegido
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.GetAccountResponseMessage.PayableBalance">
+            <summary>
+            Balanço a pagar
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.GetAccountResponseMessage.ReceivableBalance">
+            <summary>
+            Balanço a receber
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.GetAccountResponseMessage.CommissionBalance">
+            <summary>
+            Balanço de comissões
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.GetAccountResponseMessage.LastMonthVolume">
+            <summary>
+            Volume do último mês
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.GetAccountResponseMessage.CurrentVolume">
+            <summary>
+            Volume do mês
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.GetAccountResponseMessage.TaxesPaidLastMonth">
+            <summary>
+            Taxas pagas no ultimo mês
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.GetAccountResponseMessage.TaxesPaidMonth">
+            <summary>
+            Taxas pagas no mês
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.GetAccountResponseMessage.ClientLogoUrl">
+            <summary>
+            Url da logo do cliente em tamanho padrão
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.GetAccountResponseMessage.ClientSmallLogoUrl">
+            <summary>
+            Url da logo do cliente em tamanho pequeno
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.GetAccountResponseMessage.ExtraInformations">
+            <summary>
+            Informações extras da conta, baseadas em chave valor
+            </summary>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.Response.WithdrawModel">
+            <summary>
+            Modelo que representa as informações da retirada
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.WithdrawModel.Id">
+            <summary>
+            Identificação da retirada
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.WithdrawModel.AccountId">
+            <summary>
+            Identificação da conta
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.WithdrawModel.Amount">
+            <summary>
+            Valor
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.WithdrawModel.Bank">
+            <summary>
+            Nome da instituição bancária 
+            Suportados : 'Itaú', 'Bradesco', 'Caixa Econômica', 'Banco do Brasil', 'Santander'
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.WithdrawModel.BankAgency">
+            <summary>
+            Agência da Conta
+            Formatos com validação automática(9999-D, 9999)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.WithdrawModel.AccountType">
+            <summary>
+            Tipo da conta: 'Corrente', 'Poupança'
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.WithdrawModel.BankAccountNumber">
+            <summary>
+            Número da Conta
+            Formatos com validação automática(99999999-D, XXX99999999-D onde X é Operação, 	9999999-D, 99999-D)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.WithdrawModel.CreatedAt">
+            <summary>
+            Data de Criação
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.WithdrawModel.Feedback">
+            <summary>
+            Feedback de verificação dos dados
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.WithdrawModel.Reference">
+            <summary>
+            Referência
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.WithdrawModel.Status">
+            <summary>
+            Status da transação
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.WithdrawModel.UpdatedAt">
+            <summary>
+            Data da retirada
+            </summary>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.Response.Information">
+            <summary>
+            Informações extras da conta
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.PaggedResponseMessage`1.TotalItems">
+            <summary>
+            Total de items existentes
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.PaggedResponseMessage`1.TotalItemsReturned">
+            <summary>
+            Total de items retornados
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.PaggedResponseMessage`1.Items">
+            <summary>
+            Agência da Conta
+            Formatos com validação automática(9999-D, 9999)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.PaymentTokenResponseMessage.Id">
+            <summary>
+            Token Criado
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.PaymentTokenResponseMessage.Method">
+            <summary>
+            Método de Pagamento (atualmente somente credit_card)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.BankInfo.Name">
+            <summary>
+            Nome da instituição bancária 
+            Suportados : 'Itaú', 'Bradesco', 'Caixa Econômica', 'Banco do Brasil', 'Santander'
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.BankInfo.AccountNumber">
+            <summary>
+            Número da Conta
+            Formatos (99999999-D, XXX99999999-D onde X é Operação, 	9999999-D, 99999-D)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.BankInfo.AgencyNumber">
+            <summary>
+            Agência da Conta
+            Formatos (9999-D, 9999)
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.BankInfo.AccountType">
+            <summary>
+            Tipo da conta: 'Corrente', 'Poupança'
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.SimpleResponseMessage.Success">
+            <summary>
+            Result of request
+            </summary>
+        </member>
+        <member name="T:UtilityFramework.Services.Iugu.Core.Response.VerifyAccountResponseMessage">
+            <summary>
+            Resposta da verificação dos dados de uma conta
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.VerifyAccountResponseMessage.Id">
+            <summary>
+            Identificação da verificação
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.VerifyAccountResponseMessage.AccountId">
+            <summary>
+            Identificação da conta
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.VerifyAccountResponseMessage.Data">
+            <summary>
+            Dados da conta
+            </summary>
+        </member>
+        <member name="P:UtilityFramework.Services.Iugu.Core.Response.VerifyAccountResponseMessage.CreatedAt">
+            <summary>
+            Data da criação da verificação
+            </summary>
+        </member>
+    </members>
+</doc>

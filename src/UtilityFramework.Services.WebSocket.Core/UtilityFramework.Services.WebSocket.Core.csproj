@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Version>1.0.1.0</Version>
+    <Authors>Megaleios</Authors>
+    <Product>UtilityFramework</Product>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <CheckEolTargetFramework>false</CheckEolTargetFramework>
+<SuppressTfmSupportBuildWarnings>true</SuppressTfmSupportBuildWarnings>
+    <NoWarn>0649;1584;1658;1711:1712;0693;0162;0612;1634;0618;1998;1701;1702;1591;1572;1571;1573;1587;1570</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.WebSockets" Version="1.0.2" />
+    <PackageReference Include="System.Net.WebSockets" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\UtilityFramework.Application.Core\UtilityFramework.Application.Core.csproj" />
+  </ItemGroup>
+
+</Project>

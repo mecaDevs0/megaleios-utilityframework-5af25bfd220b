@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Version>1.0.1.0</Version>
+    <Authors>Megaleios</Authors>
+    <Product>UtilityFramework</Product>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <CheckEolTargetFramework>false</CheckEolTargetFramework>
+<SuppressTfmSupportBuildWarnings>true</SuppressTfmSupportBuildWarnings>
+    <NoWarn>0649;1584;1658;1711:1712;0693;0162;0612;1634;0618;1998;1701;1702;1591;1572;1571;1573;1587;1570</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Crc32.NET" Version="1.2.0" />
+    <PackageReference Include="FirebaseAuthentication.net" Version="3.2.0" />
+    <PackageReference Include="FirebaseDatabase.net" Version="3.3.3" />
+    <PackageReference Include="Google.Cloud.Firestore" Version="1.0.0-beta11" />
+    <PackageReference Include="MailKit" Version="2.1.3" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="1.1.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="1.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\UtilityFramework.Application.Core\UtilityFramework.Application.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System">
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
