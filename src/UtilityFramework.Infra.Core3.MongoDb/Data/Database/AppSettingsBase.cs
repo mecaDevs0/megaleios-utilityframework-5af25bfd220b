@@ -12,19 +12,11 @@ namespace UtilityFramework.Infra.Core3.MongoDb.Data.Database
         private static IConfigurationRoot Configuration { get; set; }
         private static BaseSettings _settingsDataBase { get; set; }
 
-        public static BaseSettings GetSettings(IHostingEnvironment env)
+        public static BaseSettings GetSettings(IConfiguration configuration)
         {
-
-
-            var builder = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json")
-                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
-            Configuration = builder.Build();
-
             var baseSettings = new BaseSettings();
 
-            Configuration.GetSection("DATABASE").Bind(baseSettings);
+            configuration.GetSection("DATABASE").Bind(baseSettings);
 
             if (baseSettings.MaxConnections == 0 || baseSettings.MaxConnections == null)
                 baseSettings.MaxConnections = 250;
@@ -37,9 +29,9 @@ namespace UtilityFramework.Infra.Core3.MongoDb.Data.Database
             return baseSettings;
         }
 
-        public static MongoClient GetMongoClient(IHostingEnvironment env)
+        public static MongoClient GetMongoClient(IHostingEnvironment env, IConfiguration configuration)
         {
-            _settingsDataBase = GetSettings(env);
+            _settingsDataBase = GetSettings(configuration);
 
             return new MongoClient(ReadMongoClientSettings());
 

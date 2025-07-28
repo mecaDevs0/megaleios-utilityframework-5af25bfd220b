@@ -41,7 +41,7 @@ namespace UtilityFramework.Infra.Core3.MongoDb.Business
         public MongoClient MongoClient;
         private readonly Collation defaultCollationIgnoreCase = new Collation("en", strength: CollationStrength.Primary);
 
-        public BusinessBaseAsync(IHostingEnvironment env)
+        public BusinessBaseAsync(IHostingEnvironment env, IConfiguration configuration)
         {
             BaseSettings.IsDev = env.IsDevelopment();
 
@@ -49,9 +49,9 @@ namespace UtilityFramework.Infra.Core3.MongoDb.Business
             BaseSettings.IsDev = true;
 #endif
 
-            _settingsDataBase = AppSettingsBase.GetSettings(env);
+            _settingsDataBase = AppSettingsBase.GetSettings(configuration);
 
-            MongoClient = AppSettingsBase.GetMongoClient(env);
+            MongoClient = AppSettingsBase.GetMongoClient(env, configuration);
 
             if (BaseSettings.MongoClient == null)
                 BaseSettings.MongoClient = MongoClient;
