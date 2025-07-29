@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Configuration;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
@@ -36,16 +37,17 @@ namespace UtilityFramework.Infra.Core3.MongoDb.Business
         public MongoClient MongoClient;
 
         /// <inheritdoc />
-        public BusinessBase(IHostingEnvironment env)
+        public BusinessBase(Microsoft.Extensions.Configuration.IConfiguration configuration)
         {
-            BaseSettings.IsDev = env.IsDevelopment();
+            // Se necessário, ajuste para obter env de outro modo ou remova se não for mais usado
+            // BaseSettings.IsDev = env.IsDevelopment();
 
 #if DEBUG
             BaseSettings.IsDev = true;
 #endif
-            _settingsDataBase = AppSettingsBase.GetSettings(env);
+            _settingsDataBase = AppSettingsBase.GetSettings(configuration);
 
-            MongoClient = AppSettingsBase.GetMongoClient(env);
+            MongoClient = AppSettingsBase.GetMongoClient(null, configuration);
 
 #pragma warning disable CS0618 // Type or member is obsolete
             var server = MongoClient.GetServer();

@@ -1,64 +1,43 @@
-﻿using Microsoft.Extensions.Hosting;
-using MongoDB.Driver;
-using UtilityFramework.Infra.Core3.MongoDb.Data.Database.Interface;
-using UtilityFramework.Infra.Core3.MongoDb.Data.Server;
+using Microsoft.Extensions.Configuration;
+using UtilityFramework.Infra.Core3.MongoDb.Data.Server; // Usando a classe concreta
 
 namespace UtilityFramework.Infra.Core3.MongoDb.Data.Database
 {
-    public class DataAccess
+    // REMOVEMOS a implementação ": IDataAccess"
+    public class DataAccess 
     {
+        private readonly IConfiguration _configuration;
+        private readonly DataBaseConfig _dataBaseConfig;
+        // Usamos a CLASSE CONCRETA "ServerAccess" em vez da interface
+        private readonly ServerAccess _serverAccess; 
 
-        private IMongoDatabase _databaseAsync = null;
-        /// <summary>
-        /// Return Name connection
-        /// </summary>
-        public IMongoDatabase DatabaseAccessAsync => _databaseAsync;
-        /// <summary>
-        /// Return configuration object
-        /// </summary>
-        private IConfiguration Configuration { get; set; } = null;
-
-        /// <summary>
-        /// Return configuration object
-        /// </summary>
-        private static IHostingEnvironment Env { get; set; } = null;
-
-
-        /// <summary>
-        /// Connection Name
-        /// </summary>
-        /// <param name="config"></param>
-        /// <param name="env"></param>
-        public DataAccess(IConfiguration config, IHostingEnvironment env)
+        public DataAccess(IConfiguration configuration)
         {
-            Configuration = config;
-            Env = env;
-
-            CreateDatabaseAccess();
+            _configuration = configuration;
+            _dataBaseConfig = new DataBaseConfig(_configuration);
+            // Criamos a CLASSE CONCRETA "ServerAccess"
+            _serverAccess = new ServerAccess(_configuration); 
         }
 
-
-        /// <summary>
-        /// Create instance to Name
-        /// </summary>
-        private void CreateDatabaseAccess()
+        public DataBaseConfig GetDataBaseConfig()
         {
-            //_database = LoadMongoServer().GetDatabase(Configuration.DataBaseName);
-        }
-        private void CreateDatabaseAccessAsync()
-        {
-            //_databaseAsync = 
+            return _dataBaseConfig;
         }
 
-        /// <summary>
-        /// Return server connection
-        /// </summary>
-        /// <returns></returns>
-        private static MongoServer LoadMongoServer()
+        public string GetDataBaseName()
         {
-            // Return server
-            return new ServerAccess(Env).Server;
+            return _dataBaseConfig.DatabaseName;
         }
 
+        public string GetConnectionString()
+        {
+            return _dataBaseConfig.ConnectionString;
+        }
+
+        // O método agora retorna a CLASSE CONCRETA "ServerAccess"
+        public ServerAccess GetServerAccess() 
+        {
+            return _serverAccess;
+        }
     }
 }

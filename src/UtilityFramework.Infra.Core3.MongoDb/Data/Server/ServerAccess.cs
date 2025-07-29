@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;
 using UtilityFramework.Infra.Core3.MongoDb.Data.Database;
 
@@ -22,9 +23,9 @@ namespace UtilityFramework.Infra.Core3.MongoDb.Data.Server
         /// <summary>
         /// Create server connection
         /// </summary>
-        public ServerAccess(IHostingEnvironment env)
+        public ServerAccess(Microsoft.Extensions.Configuration.IConfiguration configuration)
         {
-            _baseSettings = AppSettingsBase.GetSettings(env);
+            _baseSettings = AppSettingsBase.GetSettings(configuration);
             CreateServerConnection();
         }
 

@@ -7,8 +7,19 @@ using MongoDB.Driver;
 
 namespace UtilityFramework.Infra.Core3.MongoDb.Data.Database
 {
-    public static class AppSettingsBase
+    public class AppSettingsBase
     {
+        protected readonly Microsoft.Extensions.Configuration.IConfiguration _configuration;
+
+        public AppSettingsBase(Microsoft.Extensions.Configuration.IConfiguration configuration)
+        {
+            _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
+        }
+
+        // Construtor vazio para compatibilidade legada
+        public AppSettingsBase()
+        {
+        }
         private static IConfigurationRoot Configuration { get; set; }
         private static BaseSettings _settingsDataBase { get; set; }
 

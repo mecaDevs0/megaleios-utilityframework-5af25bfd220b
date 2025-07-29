@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.Extensions.Configuration;
 using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -51,7 +52,12 @@ namespace UtilityFramework.Infra.Core3.MongoDb.Business
 
             _settingsDataBase = AppSettingsBase.GetSettings(configuration);
 
-            MongoClient = AppSettingsBase.GetMongoClient(env, configuration);
+            // CORREÇÃO: Leia a connection string diretamente da configuração injetada
+            var connectionString = configuration["DATABASE:CONNECTION_STRING"];
+            // CORREÇÃO: Crie as configurações do cliente a partir da connection string
+            var clientSettings = MongoClientSettings.FromConnectionString(connectionString);
+            // CORREÇÃO: Crie o cliente Mongo com as configurações corretas
+            MongoClient = new MongoClient(clientSettings);
 
             if (BaseSettings.MongoClient == null)
                 BaseSettings.MongoClient = MongoClient;
