@@ -553,7 +553,7 @@ namespace UtilityFramework.Application.Core
             CustomAssemblyLoadContext context = new();
             context.LoadUnmanagedLibrary(wkHtmlToPdfPath);
 
-            services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools()));
+            services.AddSingleton<IConverter>(new SynchronizedConverter(new PdfTools()));
 
             return services;
         }
