@@ -55,7 +55,11 @@ namespace UtilityFramework.Infra.Core3.MongoDb.Business
             // CORREÇÃO: Leia a connection string diretamente da configuração injetada
             var connectionString = configuration["DATABASE:CONNECTION_STRING"];
             // CORREÇÃO: Crie as configurações do cliente a partir da connection string
+
             var clientSettings = MongoClientSettings.FromConnectionString(connectionString);
+            // ADICIONE ESTAS DUAS LINHAS:
+            clientSettings.SslSettings = new SslSettings();
+            clientSettings.SslSettings.EnabledSslProtocols = System.Security.Authentication.SslProtocols.Tls12;
             // CORREÇÃO: Crie o cliente Mongo com as configurações corretas
             MongoClient = new MongoClient(clientSettings);
 
