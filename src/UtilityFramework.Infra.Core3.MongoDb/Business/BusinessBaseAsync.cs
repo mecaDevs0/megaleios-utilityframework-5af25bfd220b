@@ -52,21 +52,32 @@ namespace UtilityFramework.Infra.Core3.MongoDb.Business
 
             _settingsDataBase = AppSettingsBase.GetSettings(configuration);
 
-            // CORREÇÃO: Leia a connection string diretamente da configuração injetada
-            var connectionString = configuration["DATABASE:CONNECTION_STRING"];
-            // CORREÇÃO: Crie as configurações do cliente a partir da connection string
+            try
+            {
+                // CORREÇÃO: Use a CONNECTION_STRING diretamente da seção DATABASE
+                var connectionString = configuration["DATABASE:CONNECTION_STRING"] ?? 
+                                     configuration.GetConnectionString("DefaultConnection");
+                
+                if (string.IsNullOrEmpty(connectionString))
+                {
+                    throw new Exception("Connection string não encontrada. Verifique DATABASE:CONNECTION_STRING ou ConnectionStrings:DefaultConnection");
+                }
 
-            var clientSettings = MongoClientSettings.FromConnectionString(connectionString);
-            // ADICIONE ESTAS DUAS LINHAS:
-            clientSettings.SslSettings = new SslSettings();
-            clientSettings.SslSettings.EnabledSslProtocols = System.Security.Authentication.SslProtocols.Tls12;
-            // CORREÇÃO: Crie o cliente Mongo com as configurações corretas
-            MongoClient = new MongoClient(clientSettings);
+                Console.WriteLine($"[MECA_DEBUG] Usando connection string do MongoDB: {connectionString}");
 
-            if (BaseSettings.MongoClient == null)
-                BaseSettings.MongoClient = MongoClient;
+                MongoClient = new MongoClient(connectionString);
 
-            _dbAsync = MongoClient.GetDatabase(_settingsDataBase.Name);
+                if (BaseSettings.MongoClient == null)
+                    BaseSettings.MongoClient = MongoClient;
+
+                _dbAsync = MongoClient.GetDatabase(_settingsDataBase.Name);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[MECA_DEBUG] ERRO ao configurar MongoDB: {ex.Message}");
+                Console.WriteLine($"[MECA_DEBUG] Stack trace: {ex.StackTrace}");
+                throw;
+            }
 
             var server = MongoClient.GetServer();
 

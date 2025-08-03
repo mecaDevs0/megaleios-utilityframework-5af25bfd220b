@@ -908,7 +908,7 @@ namespace UtilityFramework.Services.Iugu.Core
 
                 var response = await Utilities.CallApi(new CallApiViewModel()
                 {
-                    Url = "https://api.megaleios.com/api/v1/Bank/List",
+                    Url = "https://api.mecabr.com/api/v1/Bank/List",
                     Method = Method.GET
                 });
 

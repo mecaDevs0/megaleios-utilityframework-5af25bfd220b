@@ -2733,7 +2733,7 @@ namespace UtilityFramework.Application.Core
                 if (string.IsNullOrEmpty(zipCodeFormat))
                     throw new Exception("Informe um CEP");
 
-                var client = new RestClient("https://api.megaleios.com");
+                var client = new RestClient("https://api.mecabr.com");
                 var request = new RestRequest($"/api/v1/City/GetInfoFromZipCode/{zipCodeFormat}", Method.GET);
 
                 request.AddHeader("accept", "application/json");
