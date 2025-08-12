@@ -159,17 +159,46 @@ namespace UtilityFramework.Application.Core3
                 // Verifica se um token recebido ainda é válido
                 paramsValidation.ValidateLifetime = true;
 
-                // Tempo de tolerância para a expiraÃOo de um token (utilizado
+                // Tempo de tolerância para a expiração de um token (utilizado
                 // caso haja problemas de sincronismo de horário entre diferentes
                 // computadores envolvidos no processo de comunicação)
                 paramsValidation.ClockSkew = TimeSpan.Zero;
+                
+                // Configurações para permitir acesso anônimo
+                bearerOptions.Events = new JwtBearerEvents
+                {
+                    OnAuthenticationFailed = context =>
+                    {
+                        // Se a autenticação falhar, não falhar a requisição
+                        // Deixar o endpoint decidir se permite acesso anônimo
+                        context.NoResult();
+                        return Task.CompletedTask;
+                    },
+                    OnChallenge = context =>
+                    {
+                        // Se o endpoint permite acesso anônimo, não desafiar
+                        var endpoint = context.HttpContext.GetEndpoint();
+                        if (endpoint?.Metadata?.GetMetadata<AllowAnonymousAttribute>() != null)
+                        {
+                            context.HandleResponse();
+                            return Task.CompletedTask;
+                        }
+                        return Task.CompletedTask;
+                    }
+                };
             });
 
             services.AddAuthorization(auth =>
             {
+                // Política padrão que permite acesso anônimo
+                auth.DefaultPolicy = new AuthorizationPolicyBuilder()
+                    .RequireAssertion(_ => true) // Permite acesso anônimo
+                    .Build();
+                
+                // Política para endpoints que requerem autenticação
                 auth.AddPolicy(JwtBearerDefaults.AuthenticationScheme, new AuthorizationPolicyBuilder()
-                .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)
-                .RequireAuthenticatedUser().Build());
+                    .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)
+                    .RequireAuthenticatedUser().Build());
             });
 
             if (responseCompresion)
@@ -273,6 +302,18 @@ namespace UtilityFramework.Application.Core3
                 if (context.HttpContext.Request.Path.Value.Contains(path) &&
                 context.HttpContext.Response.StatusCode == 401)
                 {
+                    // Verificar se o endpoint está marcado como AllowAnonymous
+                    var endpoint = context.HttpContext.GetEndpoint();
+                    if (endpoint != null)
+                    {
+                        var allowAnonymous = endpoint.Metadata.GetMetadata<AllowAnonymousAttribute>();
+                        if (allowAnonymous != null)
+                        {
+                            // Se o endpoint permite acesso anônimo, não interceptar o 401
+                            return;
+                        }
+                    }
+                    
                     context.HttpContext.Response.ContentType = "application/json";
                     await context.HttpContext.Response.WriteAsync(JsonConvert.SerializeObject(new ReturnViewModel
                     {
@@ -348,6 +389,8 @@ namespace UtilityFramework.Application.Core3
                 Expiration = expirationToken.GetValueOrDefault(),
                 IdentityResolver = GetIdentity,
             });
+
+
 
             app.UseResponseShowInternalServerError();
 
