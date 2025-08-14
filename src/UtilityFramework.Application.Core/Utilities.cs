@@ -2528,6 +2528,11 @@ namespace UtilityFramework.Application.Core
                 return $"https://avatars.io/twitter/{twitterId}/{width}";
             if (string.IsNullOrEmpty(photo))
                 return BaseConfig.DefaultUrl.SetCurrentProtocol();
+            
+            // Fix: Check if baseUrl is null or empty before using String.Replace
+            if (string.IsNullOrEmpty(baseUrl))
+                return photo.SetCurrentProtocol();
+                
             return $"{baseUrl}{photo.Replace(baseUrl, "")}".SetCurrentProtocol();
         }
 
@@ -2557,6 +2562,10 @@ namespace UtilityFramework.Application.Core
                 return image;
 
             var baseUrl = (string.IsNullOrEmpty(customBaseUrl) ? BaseConfig.BaseUrl : customBaseUrl);
+
+            // Fix: Check if baseUrl is null or empty before using String.Replace
+            if (string.IsNullOrEmpty(baseUrl))
+                return image.SetCurrentProtocol();
 
             return (string.IsNullOrEmpty(image) ? BaseConfig.DefaultUrl : $"{baseUrl}{image.Replace(baseUrl, "")}").SetCurrentProtocol();
         }

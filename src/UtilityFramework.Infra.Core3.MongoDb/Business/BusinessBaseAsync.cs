@@ -54,13 +54,13 @@ namespace UtilityFramework.Infra.Core3.MongoDb.Business
 
             try
             {
-                // CORREÇÃO: Use a CONNECTION_STRING diretamente da seção DATABASE
-                var connectionString = configuration["DATABASE:CONNECTION_STRING"] ?? 
+                // CORREÇÃO: Use a ConnectionString diretamente da seção DATABASE
+                var connectionString = configuration["DATABASE:ConnectionString"] ?? 
                                      configuration.GetConnectionString("DefaultConnection");
                 
                 if (string.IsNullOrEmpty(connectionString))
                 {
-                    throw new Exception("Connection string não encontrada. Verifique DATABASE:CONNECTION_STRING ou ConnectionStrings:DefaultConnection");
+                    throw new Exception("Connection string não encontrada. Verifique DATABASE:ConnectionString ou ConnectionStrings:DefaultConnection");
                 }
 
                 Console.WriteLine($"[MECA_DEBUG] Usando connection string do MongoDB: {connectionString}");
@@ -571,7 +571,7 @@ namespace UtilityFramework.Infra.Core3.MongoDb.Business
         {
             var filter = Builders<T>.Filter.Empty;
 
-            return await GetCollectionAsync().FindSync(filter, new FindOptions<T>() { Collation = defaultCollationIgnoreCase }).ToListAsync();
+            return await GetCollectionAsync().Find(filter).ToListAsync();
         }
 
         /// <summary>
@@ -583,10 +583,7 @@ namespace UtilityFramework.Infra.Core3.MongoDb.Business
         {
             var filter = Builders<T>.Filter.Empty;
 
-
-
-
-            return await GetCollectionAsync().FindSync(filter, new FindOptions<T> { Collation = defaultCollationIgnoreCase, Sort = sortBy }).ToListAsync();
+            return await GetCollectionAsync().Find(filter).Sort(sortBy).ToListAsync();
         }
 
         public async Task<IEnumerable<T>> FindAllAsync(SortDefinition<T> sortBy, int page, int limit = 30)
@@ -595,10 +592,7 @@ namespace UtilityFramework.Infra.Core3.MongoDb.Business
 
             var skip = ((page < 1 ? 1 : page) - 1) * limit;
 
-
-
-
-            return await GetCollectionAsync().FindSync(filter, new FindOptions<T> { Collation = defaultCollationIgnoreCase, Sort = sortBy, Limit = limit, Skip = skip }).ToListAsync();
+            return await GetCollectionAsync().Find(filter).Sort(sortBy).Limit(limit).Skip(skip).ToListAsync();
         }
 
         /// <summary>
@@ -608,7 +602,7 @@ namespace UtilityFramework.Infra.Core3.MongoDb.Business
         /// <returns></returns>
         public async Task<IEnumerable<T>> FindByAsync(Expression<Func<T, bool>> condition)
         {
-            return await GetCollectionAsync().FindSync(condition, new FindOptions<T>() { Collation = defaultCollationIgnoreCase }).ToListAsync();
+            return await GetCollectionAsync().Find(condition).ToListAsync();
         }
 
         /// <summary>
@@ -619,10 +613,7 @@ namespace UtilityFramework.Infra.Core3.MongoDb.Business
         /// <returns></returns>
         public async Task<IEnumerable<T>> FindByAsync(Expression<Func<T, bool>> condition, SortDefinition<T> sortBy)
         {
-
-
-
-            return await GetCollectionAsync().FindSync(condition, new FindOptions<T> { Collation = defaultCollationIgnoreCase, Sort = sortBy }).ToListAsync();
+            return await GetCollectionAsync().Find(condition).Sort(sortBy).ToListAsync();
         }
 
         /// <summary>
@@ -635,7 +626,7 @@ namespace UtilityFramework.Infra.Core3.MongoDb.Business
         public async Task<IEnumerable<T>> FindByAsync(Expression<Func<T, bool>> condition, int page, int limit = 30)
         {
             var skip = ((page < 1 ? 1 : page) - 1) * limit;
-            return await GetCollectionAsync().FindSync(condition, new FindOptions<T> { Limit = limit, Skip = skip })
+            return await GetCollectionAsync().Find(condition).Limit(limit).Skip(skip)
                 .ToListAsync();
         }
 
@@ -650,11 +641,9 @@ namespace UtilityFramework.Infra.Core3.MongoDb.Business
         public async Task<IEnumerable<T>> FindByAsync(Expression<Func<T, bool>> condition, int page,
             SortDefinition<T> sortBy, int limit = 30)
         {
-
-
             var skip = ((page < 1 ? 1 : page) - 1) * limit;
             return await GetCollectionAsync()
-                .FindSync(condition, new FindOptions<T> { Collation = defaultCollationIgnoreCase, Sort = sortBy, Limit = limit, Skip = skip }).ToListAsync();
+                .Find(condition).Sort(sortBy).Limit(limit).Skip(skip).ToListAsync();
         }
 
         /// <summary>
@@ -690,7 +679,7 @@ namespace UtilityFramework.Infra.Core3.MongoDb.Business
 
 
             _filter = Builders<T>.Filter.And(listQueries);
-            return await GetCollectionAsync().FindSync(_filter, new FindOptions<T>() { Collation = defaultCollationIgnoreCase }).ToListAsync();
+            return await GetCollectionAsync().Find(_filter).ToListAsync();
         }
 
         /// <summary>
@@ -733,7 +722,7 @@ namespace UtilityFramework.Infra.Core3.MongoDb.Business
 
 
             _filter = Builders<T>.Filter.And(listQueries);
-            return await GetCollectionAsync().FindSync(_filter, new FindOptions<T> { Collation = defaultCollationIgnoreCase, Limit = limit, Skip = skip })
+            return await GetCollectionAsync().Find(_filter).Limit(limit).Skip(skip)
                 .ToListAsync();
         }
 
